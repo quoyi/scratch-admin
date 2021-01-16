@@ -1,5 +1,6 @@
 app_name: Scratch Admin
 
+redis_url: redis://localhost:6379/1
 devise_secret_key:
 devise_pepper_key:
 

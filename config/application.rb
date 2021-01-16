@@ -21,6 +21,8 @@ module ScratchAdmin
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.cache_store = :redis_cache_store, { url: ENV['redis_url'] || 'redis://localhost:6379/1' }
+
     config.generators do |g|
       g.helper false
       g.stylesheets false

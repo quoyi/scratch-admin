@@ -1,0 +1,16 @@
+zh-CN:
+  activerecord:
+    models:
+      user: 用户
+    attributes:
+      user:
+        email: 邮箱
+        password: 密码
+        password_confirmation: 重复密码
+        remember_me: 记住我的登录状态
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 必须填写

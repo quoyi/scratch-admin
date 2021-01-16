@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html dir="ltr" lang="<%= I18n.locale %>">
   <head>
     <title>ScratchAdmin</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+
+    <%= render 'layouts/common/meta' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +11,8 @@
   </head>
 
   <body>
+    <%= render 'layouts/application/navbar' %>
+
     <%= render 'layouts/message' %>
 
     <%= yield %>

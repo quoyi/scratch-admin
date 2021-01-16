@@ -72,8 +72,7 @@ jobs:
           POSTGRES_USER: actions_postgres
           POSTGRES_PASSWORD: actions_postgres
         run: |
-          cp config/database.ci.yml config/database.yml
-          rake db:create db:migrate
+          bundle exec rake db:create db:migrate
 
       - name: Run tests
         env:

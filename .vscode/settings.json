@@ -1,8 +1,0 @@
-{
-  "ruby.rubocop.configFilePath": "/Users/quoyi/Workspace/open-source/scratch-admin/.rubocop.yml",
-  "ruby.rubocop.executePath": "/Users/quoyi/.rvm/gems/ruby-2.7.2/wrappers/",
-  "rubyTestExplorer.testFramework": "minitest",
-  "rubyTestExplorer.minitestCommand": "PARALLEL_WORKERS=1 ./bin/rake",
-  "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.debuggerPort": "12345"
-}

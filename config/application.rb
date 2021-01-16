@@ -31,5 +31,7 @@ module ScratchAdmin
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
     config.i18n.available_locales = %w[zh-CN en zh-TW]
     config.i18n.default_locale = 'zh-CN'
+
+    config.time_zone = 'Beijing'
   end
 end

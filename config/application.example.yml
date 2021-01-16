@@ -1,5 +1,8 @@
 app_name: Scratch Admin
 
+devise_secret_key:
+devise_pepper_key:
+
 database_username: root
 database_password:
 

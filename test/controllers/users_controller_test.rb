@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = create(:user)
   end
 
   test 'should get index' do
@@ -18,11 +18,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create user' do
+    @new = build(:user)
     assert_difference('User.count') do
-      post users_url, params: { user: {} }
+      post users_url, params: { user: @new.as_json.merge(password: 123_456) }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to root_url # user_url(User.last) devise redirected to root_path
   end
 
   test 'should show user' do
@@ -36,8 +37,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update user' do
-    patch user_url(@user), params: { user: {} }
+    patch user_url(@user), params: { user: { email: 'test@example.com' } }
     assert_redirected_to user_url(@user)
+    assert_equal 'test@example.com', @user.reload.email
   end
 
   test 'should destroy user' do

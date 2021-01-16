@@ -1,0 +1,8 @@
+app_name: Scratch Admin
+
+database_username: root
+database_password:
+
+production:
+  database_username: deploy
+  database_password:

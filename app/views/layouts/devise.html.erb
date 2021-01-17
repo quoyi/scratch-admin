@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title><%= Setting.app_name %></title>
+
+    <%= render 'layouts/common/meta' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/application/navbar' %>
+
+    <div class="content">
+      <%= render 'layouts/message' %>
+      <div class="row m-0 my-auto justify-content-center">
+        <div class="col col-lg-4 p-1 p-lg-0">
+          <div class="card">
+            <% if content_for?(:devise_title) %>
+              <div class="card-header text-center">
+                <%= yield :devise_title %>
+              </div>
+            <% end %>
+
+            <div class="card-body">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -15,9 +15,7 @@ import * as bootstrap from "bootstrap";
 window.$ = window.jQuery = $;
 window.bootstrap = bootstrap;
 
-import { getAll } from "./utils";
-
-document.addEventListener("DOMContentLoaded", (e) => {
-  const $tooltips = getAll('[data-bs-toggle="tooltip"]');
-  $tooltips.forEach(($tooltip) => new bootstrap.Tooltip($tooltip));
+// document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("turbolinks:load", (e) => {
+  window.dispatchEvent(new Event("resize"));
 });

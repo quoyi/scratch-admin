@@ -6,9 +6,20 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 
 @import '~bootstrap/scss/bootstrap';
 
-// 移除所有链接点击时的阴影边框
-a {
-  &:hover {
-    box-shadow: none !important;
+$navbar-top-height: $spacer * 3.5;
+
+body {
+  // 设置内容区与顶部导航条的内嵌式缩进
+  & > .container-fluid {
+    min-height: 100vh;
+    margin-top: - $navbar-top-height;
+    padding-top: $navbar-top-height;
+  }
+
+  // 移除所有链接点击时的阴影边框
+  a {
+    &:hover {
+      box-shadow: none !important;
+    }
   }
 }

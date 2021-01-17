@@ -1,13 +1,1 @@
 @import './bootstrap';
-
-$navbar-top-height: $spacer * 3.5;
-
-body {
-  min-height: 100vh;
-
-  & > .container-fluid {
-    min-height: 100vh;
-    margin-top: - $navbar-top-height;
-    padding-top: $navbar-top-height;
-  }
-}

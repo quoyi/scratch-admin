@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   before_validation :auto_complete
 
-  enum gender: { female: 0, male: 1, unkown: 2 }, _prefix: true
+  enum gender: { unkown: 0, female: 1, male: 2 }, _prefix: true
   enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
 
   protected

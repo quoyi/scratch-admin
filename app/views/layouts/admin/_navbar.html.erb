@@ -16,10 +16,21 @@
           <%= link_to '首页', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
         </li>
         <li class="nav-item">
-          <%= link_to '关于我们', '#!', class: 'nav-link disabled', aria: { disabled: true } %>
+          <%= link_to 'Link', '#!', class: 'nav-link' %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
         <li class="nav-item">
-          <%= link_to '联系我们', '#!', class: 'nav-link disabled', aria: { disabled: true } %>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
 

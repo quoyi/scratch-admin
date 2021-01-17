@@ -1,0 +1,18 @@
+<div class="position-absolute r-0">
+  <% flash.keys.each do |key| %>
+    <div class="toast toast-<%= key %> m-1" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <span class="fas fa-<%= key %> mr-2"></span>
+        <strong class="mr-auto"><%= toast_title_by(key) %></strong>
+        <%# <small class="text-muted">11 mins ago</small> %>
+        <button class="ml-2 mb-1 close" type="button" data-dismiss="toast" aria-label="关闭">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="toast-body">
+        <%= flash[key] %>
+      </div>
+    </div>
+  <% end %>
+</div>

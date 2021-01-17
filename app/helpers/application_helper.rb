@@ -12,4 +12,15 @@ module ApplicationHelper
       draw_tree(partial: partial, object: junior, **opts) if junior.juniors
     end
   end
+
+  def toast_title_by(flash_type)
+    case flash_type
+    when 'notice'
+      '成功'
+    when 'alert'
+      '警告'
+    else
+      ''
+    end
+  end
 end

@@ -1,0 +1,15 @@
+// font-awesome alias
+.fa {
+  &-notice {
+    @extend .fa-info-circle;
+  }
+  &-alert {
+    @extend .fa-exclamation-circle;
+  }
+  &-warning {
+    @extend .fa-question-circle;
+  }
+  &-error {
+    @extend .fa-bug;
+  }
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title><%= Setting.app_name %></title>
+
+    <%= render 'layouts/common/meta' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/application/navbar' %>
+
+    <%= render 'layouts/message' %>
+
+    <%= yield %>
+  </body>
+</html>

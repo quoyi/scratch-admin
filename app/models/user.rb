@@ -47,6 +47,11 @@ class User < ApplicationRecord
       generate_mobile if self.class.exists?(mobile: mobile)
     end
 
+    def generate_email
+      self.email = "#{self.class.strftime(:long_serial)}@#{Setting.mail_suffix}"
+      generate_email if self.class.exists?(email: email)
+    end
+
     def generate_token
       self.token = SecureRandom.urlsafe_base64(Setting.token_length)
       generate_token if self.class.exists?(token: token)
@@ -57,9 +62,8 @@ class User < ApplicationRecord
     def auto_complete
       generate_mobile if mobile.blank?
       generate_token if token.blank?
+      generate_email if email.blank?
 
-      long_time_str = User.strftime(:long_serial)
-      self.nick ||= long_time_str
-      self.email ||= "#{long_time_str}@#{Setting.mail_suffix}"
+      self.nick ||= email[/\A([^@\s]+)@[^@\s]+\z/i, 1]
     end
 end

@@ -4,11 +4,11 @@
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :login,
                 required: false,
                 autofocus: true,
-                placeholder: '邮箱',
-                input_html: { autocomplete: "email" } %>
+                placeholder: '手机号 / 邮箱',
+                input_html: { autocomplete: "login" } %>
     <%= f.input :password,
                 required: false,
                 placeholder: '密码',

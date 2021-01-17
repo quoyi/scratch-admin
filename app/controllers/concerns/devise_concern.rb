@@ -18,7 +18,7 @@ module DeviseConcern
   protected
 
     def devise_params_permit!
-      attribute_names = %i[email password password_confirmation remember_me]
+      attribute_names = %i[login mobile email password password_confirmation remember_me]
       devise_parameter_sanitizer.permit(:sign_in, keys: attribute_names)
       devise_parameter_sanitizer.permit(:sign_up, keys: attribute_names)
     end

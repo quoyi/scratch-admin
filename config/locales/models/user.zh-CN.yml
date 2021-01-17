@@ -4,6 +4,7 @@ zh-CN:
       user: 用户
     attributes:
       user:
+        login: 账号
         email: 邮箱
         password: 密码
         password_confirmation: 重复密码

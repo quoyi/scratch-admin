@@ -18,24 +18,24 @@ module Devisable
     validates :email, uniqueness: true,
                       format: { with: /\A[^@\s]+@[^@\s]+\z/i },
                       if: proc { |u| u.email.present? }
+
+    # override devise method to query user
+    def self.find_for_database_authentication(warden_conditions)
+      conditions = warden_conditions.dup
+      login = conditions.delete(:login)
+      where(conditions).find_by('mobile = :val OR email = :val', { val: login.downcase })
+    end
+
+    # override devise method to copy data from omniauth
+    # def self.new_with_session(params, session)
+    #   super.tap do |user|
+    #     data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+    #     user.email = data['email'] if data && user.email.blank?
+    #   end
+    # end
   end
 
-  # override devise method to query user
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    login = conditions.delete(:login)
-    where(conditions).find_by('mobile = :val OR email = :val', { val: login.downcase })
-  end
-
-  # override devise method to copy data from omniauth
-  # def self.new_with_session(params, session)
-  #   super.tap do |user|
-  #     data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
-  #     user.email = data['email'] if data && user.email.blank?
-  #   end
-  # end
-
-  def login
+  def username
     nick || mobile || email
   end
 end

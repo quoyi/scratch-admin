@@ -16,9 +16,9 @@ Turbolinks.start();
 ActiveStorage.start();
 
 import "@fortawesome/fontawesome-free/js/all";
-import * as Popper from "@popperjs/core";
 import * as bootstrap from "bootstrap";
-window.Popper = Popper;
+
+window.$ = window.jQuery = $;
 window.bootstrap = bootstrap;
 
 import "./bootstrap";

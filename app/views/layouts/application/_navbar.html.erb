@@ -1,32 +1,32 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
   <div class="container-fluid">
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_pack_tag 'brand.png', alt: 'Brand', width: 30, height: 24 %> 慧玩慧学
+      <%= image_pack_tag 'brand.png', class: 'd-inline-block align-top', width: 30, height: 30, loading: 'lazy', alt: 'Brand' %> 慧玩慧学
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#applicationNavbar" aria-controls="applicationNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#applicationNavbar" aria-controls="applicationNavbar" aria-expanded="false" aria-label="切换导航">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="applicationNavbar">
       <%# 功能导航 %>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to '首页', root_path, class: 'nav-link active', aria: { current: 'page' } %>
+          <%= link_to '首页', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
         </li>
         <li class="nav-item">
           <%= link_to 'Link', '#!', class: 'nav-link' %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -39,18 +39,18 @@
           <li class="nav-item"><%= link_to '<span class="fas fa-bell"></span>'.html_safe, '#!', class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to '<span class="fas fa-plus"></span>'.html_safe, '#!', class: 'nav-link' %></li>
           <li class="nav-item dropdown">
-            <%= link_to current_user.login, '#', class: 'nav-link dropdown-toggle', id: 'accountDropdown', role: 'button', data: { 'bs-toggle': 'dropdown' }, aria: { expanded: false } %>
-            <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-              <li><%= link_to '个人设置', edit_user_registration_path, class: 'dropdown-item' %></li>
-              <li><%= link_to '修改密码', edit_user_password_path, class: 'dropdown-item' %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to '退出登录', destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
-            </ul>
+            <%= link_to current_user.login, '#', class: 'nav-link dropdown-toggle', id: 'accountDropdown', role: 'button', data: { 'toggle': 'dropdown' }, aria: { expanded: false } %>
+            <div class="dropdown-menu" aria-labelledby="accountDropdown">
+              <%= link_to '个人设置', edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to '修改密码', edit_user_password_path, class: 'dropdown-item' %>
+              <hr class="dropdown-divider">
+              <%= link_to '退出登录', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
           </li>
         </ul>
       <% else %>
-        <div class="d-flex">
-          <%= link_to '注册', new_user_registration_path, class: 'btn btn-sm btn-outline-success me-2' %>
+        <div class="d-flex my-2 my-lg-0">
+          <%= link_to '注册', new_user_registration_path, class: 'btn btn-sm btn-outline-success mr-2' %>
           <%= link_to '登录', new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
         </div>
       <% end %>

@@ -27,6 +27,8 @@ class Setting < RailsSettings::Base
   # field :omniauth_google_client_secret, default: ENV["OMNIAUTH_GOOGLE_CLIENT_SECRET"], type: :string, readonly: true
   field :app_name,         type: :string,  default: '慧玩慧学'
   field :host,             type: :string,  default: 'jjerp.cn'
+  field :mail_suffix,      type: :string,  default: 'jjerp.cn'
+  field :token_length,     type: :integer, default: 20
   field :default_password, type: :string,  default: '123abc..'
 
   field :registerable,     type: :boolean, default: false

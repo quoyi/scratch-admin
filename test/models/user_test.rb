@@ -14,11 +14,22 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  nick                   :string
+#  mobile                 :string
+#  gender                 :integer          default("female")
+#  token                  :string
+#  status                 :integer          default("enabled")
+#  role                   :integer          default("normal")
+#  guest                  :boolean          default(FALSE)
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_guest                 (guest)
+#  index_users_on_mobile                (mobile) UNIQUE
+#  index_users_on_nick                  (nick)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_token                 (token) UNIQUE
 #
 require 'test_helper'
 

@@ -7,6 +7,12 @@ module DeviseConcern
     before_action :store_user_location!, if: :storable_location?
     before_action :devise_params_permit!, if: :devise_controller?
     before_action :authenticate_user!
+
+    helper_method :current_user_admin?
+  end
+
+  def current_user_admin?
+    current_user&.admin?
   end
 
   protected
@@ -17,15 +23,18 @@ module DeviseConcern
       devise_parameter_sanitizer.permit(:sign_up, keys: attribute_names)
     end
 
+    def authenticate_admin!
+      redirect_to root_path unless current_user_admin?
+    end
+
   private
 
-    def after_sign_in_path_for(_resource_or_scope)
-      # current_user&.admin? ? admin_root_path : dashboard_path
-      stored_location_for(:user) || root_path
+    def after_sign_in_path_for(resource_or_scope)
+      current_user_admin? ? admin_root_path : stored_location_for(resource_or_scope) || root_path
+      # stored_location_for(:user) || root_path
     end
 
     def after_sign_out_path_for(_resource_or_scope)
-      # return admin_root_path if resource_or_scope == :admin
       root_path
     end
 

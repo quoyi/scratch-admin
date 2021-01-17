@@ -8,5 +8,7 @@
 
 Setting.keys.each { |key| Setting.create_with(value: Setting.send(key), preset: true).find_or_create_by(var: key) }
 
-User.create_with(password: '123abc..').find_or_create_by(email: 'admin@example.com')
-User.create_with(password: '123abc..').find_or_create_by(email: 'guest@example.com')
+User.create_with(password: Setting.default_password).find_or_create_by(email: 'admin@example.com')
+User.create_with(password: Setting.default_password).find_or_create_by(email: 'guest@example.com')
+
+puts "Initialized data 'seeds'"

@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :organization do
-    code { 'MyString' }
-    name { 'MyString' }
+    code { Organization.generate_code }
+    name { Faker::Name.unique.name }
     status { 1 }
     desc { 'MyText' }
     intro { 'MyText' }

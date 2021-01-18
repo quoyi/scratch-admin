@@ -1,0 +1,21 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+// font-awesome alias
+.fa {
+  &-notice {
+    @extend .fa-info-circle;
+  }
+  &-alert {
+    @extend .fa-exclamation-circle;
+  }
+  &-warning {
+    @extend .fa-question-circle;
+  }
+  &-error {
+    @extend .fa-bug;
+  }
+}

@@ -1,5 +1,5 @@
 <%% content_for :breadcrumbs do %>
-  <li class="breadcrumb-item"><%%= link_to t('<%= plural_table_name %>'), [:admin, :<%= plural_table_name %>] %></li>
+  <li class="breadcrumb-item"><%%= link_to t('admin.<%= plural_table_name %>'), [:admin, :<%= plural_table_name %>] %></li>
   <li class="breadcrumb-item active"><%%= t('show') %></li>
 <%% end %>
 <%% content_for :navbars do %>

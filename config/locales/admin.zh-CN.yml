@@ -1,2 +1,4 @@
 zh-CN:
-  organizations: 组织管理
+  admin:
+    organizations: 组织管理
+    users: 用户管理

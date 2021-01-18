@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :permission do
-    code { 'MyString' }
-    name { 'MyString' }
+    code { Permission.generate_code }
+    name { Faker::Name.unique.name }
     status { 1 }
     intro { 'MyText' }
     desc { 'MyText' }

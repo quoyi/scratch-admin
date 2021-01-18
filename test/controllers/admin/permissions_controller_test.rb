@@ -4,47 +4,50 @@ require_relative '../../test_helper'
 
 class Admin::PermissionsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    log_in_admin
+
     @permission = create(:permission)
   end
 
   test 'should get index' do
-    get permissions_url
+    get admin_permissions_url
     assert_response :success
   end
 
   test 'should get new' do
-    get new_permission_url
+    get new_admin_permission_url
     assert_response :success
   end
 
   test 'should create permission' do
+    @new_permission = build(:permission)
     assert_difference('Permission.count') do
-      post permissions_url, params: { permission: @permission.as_json }
+      post admin_permissions_url, params: { permission: @new_permission.as_json }
     end
 
-    assert_redirected_to permission_url(Permission.last)
+    assert_redirected_to admin_permissions_url
   end
 
   test 'should show permission' do
-    get permission_url(@permission)
+    get admin_permission_url(@permission)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_permission_url(@permission)
+    get edit_admin_permission_url(@permission)
     assert_response :success
   end
 
   test 'should update permission' do
-    patch permission_url(@permission), params: { permission: @permission.as_json }
-    assert_redirected_to permission_url(@permission)
+    patch admin_permission_url(@permission), params: { permission: @permission.as_json }
+    assert_redirected_to admin_permissions_url
   end
 
   test 'should destroy permission' do
     assert_difference('Permission.count', -1) do
-      delete permission_url(@permission)
+      delete admin_permission_url(@permission)
     end
 
-    assert_redirected_to permissions_url
+    assert_redirected_to admin_permissions_url
   end
 end

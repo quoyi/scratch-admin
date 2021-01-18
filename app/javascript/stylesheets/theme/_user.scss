@@ -12,10 +12,14 @@ body {
   }
 
   // 移除所有链接点击时的阴影边框
-  a, button {
-    &:hover, &:focus {
-      outline: none !important;
+  a {
+    &:hover {
       box-shadow: none !important;
     }
   }
+  // button {
+  //   &:focus {
+  //     outline: none !important;
+  //   }
+  // }
 }

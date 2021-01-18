@@ -1,0 +1,17 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <% if controller_name == 'home' %>
+      <li class="breadcrumb-item active">管理首页</li>
+    <% else %>
+      <li class="breadcrumb-item">
+        <%= link_to '管理首页', [:admin, :root], class: 'text-decoration-none' %>
+      </li>
+    <% end %>
+
+    <%= yield :breadcrumbs %>
+
+    <div class="flex-fill text-right">
+      <%= yield :navbars %>
+    </div>
+  </ol>
+</nav>

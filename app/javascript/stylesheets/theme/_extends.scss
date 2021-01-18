@@ -13,3 +13,17 @@
 .r-0 {
   right: 0;
 }
+
+.alert {
+  margin: $spacer * 0.25;
+
+  &-notice {
+    @extend .alert-success;
+  }
+  &-alert {
+    @extend .alert-primary;
+  }
+  &-error {
+    @extend .alert-danger;
+  }
+}

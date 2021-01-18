@@ -1,0 +1,15 @@
+<%%= simple_form_for(@<%= singular_table_name %>, url: [:admin, @<%= singular_table_name %>.new_record? ? :<%= plural_table_name %> : @<%= singular_table_name %>]) do |f| %>
+
+  <%%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%%= f.button :submit, t('save'), class: 'btn btn-primary' %>
+    <%%= link_to t('cancel'), [:admin, :<%= plural_table_name %>], class: 'btn btn-outline-secondary' %>
+  </div>
+<%% end %>

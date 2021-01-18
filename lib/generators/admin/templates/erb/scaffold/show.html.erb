@@ -1,0 +1,35 @@
+<%%# Navigation %>
+<%% content_for :breadcrumb do %>
+  <li class="breadcrumb-item"><%%= link_to admin('<%= plural_table_name %>'), [:admin, :<%= plural_table_name %>] %></li>
+  <li class="breadcrumb-item active"><%%= t('edit') %></li>
+<%% end %>
+<%% content_for :navbars do %>
+  <%%= link_to t('edit'), [:edit, :admin, @<%= singular_table_name %>], class: 'btn btn-sm btn-primary' %>
+  <%%= link_to t('back'), [:admin, :<%= plural_table_name %>], class: 'btn btn-sm btn-info' %>
+<%% end %>
+
+<%%# Detail %>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered mb-0 fs--1">
+      <% attributes.reject(&:password_digest?).each do |attribute| %>
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%%= <%= class_name %>.human_attribute_name('<%= attribute.name %>') %>
+        </th>
+        <td>
+    <% if attribute.attachment? -%>
+      <%%= link_to @<%= singular_table_name %>.<%= attribute.column_name %>.filename, @<%= singular_table_name %>.<%= attribute.column_name %> if @<%= singular_table_name %>.<%= attribute.column_name %>.attached? %>
+    <% elsif attribute.attachments? -%>
+      <%% @<%= singular_table_name %>.<%= attribute.column_name %>.each do |<%= attribute.singular_name %>| %>
+        <div><%%= link_to <%= attribute.singular_name %>.filename, <%= attribute.singular_name %> %></div>
+      <%% end %>
+    <% else -%>
+      <%%= @<%= singular_table_name %>.<%= attribute.column_name %> %>
+    <% end -%>
+    </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

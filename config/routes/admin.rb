@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :admin do
-  resources :organizations, :users
+  resources :organizations, :roles, :users
 
   root 'home#index'
 end

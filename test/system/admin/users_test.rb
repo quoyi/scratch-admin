@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'application_system_test_case'
+require_relative '../../application_system_test_case'
 
-class UsersTest < ApplicationSystemTestCase
+class Admin::UsersTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
   end

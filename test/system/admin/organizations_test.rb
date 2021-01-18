@@ -4,7 +4,7 @@ require_relative '../../application_system_test_case'
 
 class Admin::OrganizationsTest < ApplicationSystemTestCase
   setup do
-    @organization = organizations(:one)
+    @organization = create(:organization)
   end
 
   test 'visiting the index' do

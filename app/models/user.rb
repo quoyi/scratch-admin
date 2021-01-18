@@ -35,6 +35,8 @@ class User < ApplicationRecord
   include Devisable
   include Statable
 
+  # has_and_belongs_to_many :roles
+
   before_validation :auto_complete
 
   enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true

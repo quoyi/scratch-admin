@@ -1,0 +1,26 @@
+<%= simple_form_for(@role, url: [:admin, @role.new_record? ? :roles : @role]) do |f| %>
+
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row row-cols-2">
+      <%= f.input :name, required: true,
+                         placeholder: '名称',
+                         wrapper_html: { class: 'col' }
+      %>
+      <%= f.association :organization,
+                        collection: Organization.roots,
+                        prompt: '选择所属组织',
+                        wrapper_html: { class: 'col' }
+      %>
+    </div>
+
+    <%= f.input :intro, placeholder: '简介' %>
+    <%= f.input :desc, placeholder: '详细描述' %>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= f.button :submit, t('save'), class: 'btn btn-primary' %>
+    <%= link_to t('cancel'), [:admin, :roles], class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>

@@ -6,7 +6,7 @@
 #
 #  code        :string           not null
 #  name        :string           not null
-#  status      :integer          default(0)
+#  status      :integer          default("enabled")
 #  desc        :text
 #  intro       :text
 #  contacts    :string

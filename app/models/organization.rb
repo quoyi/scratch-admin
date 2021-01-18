@@ -6,7 +6,7 @@
 #
 #  code        :string           not null
 #  name        :string           not null
-#  status      :integer          default(0)
+#  status      :integer          default("enabled")
 #  desc        :text
 #  intro       :text
 #  contacts    :string
@@ -32,4 +32,7 @@ class Organization < ApplicationRecord
 
   validates :code, presence: true, uniqueness: { scope: :superior_id }
   validates :name, presence: true, uniqueness: { scope: :superior_id }
+
+  scope :roots, -> { where(superior_id: nil) }
+  scope :nodes, -> { where.not(superior_id: nil) }
 end

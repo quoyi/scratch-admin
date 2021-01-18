@@ -5,7 +5,7 @@ class Admin::OrganizationsController < AdminController
 
   # GET /admin/organizations
   def index
-    @q = Organization.ransack(search_params)
+    @q = Organization.includes(:superior).ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @organizations = @q.result.page(params[:page])
   end

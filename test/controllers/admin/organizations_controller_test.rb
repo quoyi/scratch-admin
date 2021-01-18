@@ -4,7 +4,7 @@ require_relative '../../test_helper'
 
 class Admin::OrganizationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @organization = organizations(:one)
+    @organization = create(:organization)
   end
 
   test 'should get index' do

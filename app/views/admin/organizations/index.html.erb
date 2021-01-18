@@ -17,6 +17,7 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
+            <th><%= Organization.human_attribute_name('code') %></th>
             <th><%= Organization.human_attribute_name('name') %></th>
             <th><%= Organization.human_attribute_name('superior') %></th>
             <th><%= Organization.human_attribute_name('status') %></th>
@@ -29,6 +30,7 @@
         <tbody>
           <% @organizations.each do |organization| %>
             <tr>
+              <td><%= organization.code %></td>
               <td><%= organization.name %></td>
               <td><%= organization.superior_name %></td>
               <td><%= organization.status_name %></td>

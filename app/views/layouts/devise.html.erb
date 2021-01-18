@@ -5,17 +5,17 @@
 
     <%= render 'layouts/common/meta' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render 'layouts/application/navbar' %>
 
-    <div class="content">
+    <div class="container-fluid min-vh-100 mpt-navbar position-relative">
       <%= render 'layouts/common/message' %>
 
-      <div class="row m-0 my-auto justify-content-center">
+      <div class="row no-gutters min-vh-100 mpt-navbar align-items-center justify-content-center">
         <div class="col col-md-6 col-lg-5 col-xl-4 p-1">
           <div class="card">
             <% if content_for?(:devise_title) %>

@@ -3,13 +3,18 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :code %>
-    <%= f.input :name %>
-    <%= f.input :desc %>
-    <%= f.input :intro %>
-    <%= f.input :contacts %>
-    <%= f.input :mobile %>
-    <%= f.association :superior, include_blank: '选择上级组织' %>
+    <%#= f.input :code %>
+    <div class="row row-cols-2">
+      <%= f.input :name, wrapper_html: { class: 'col' }, placeholder: '名称' %>
+      <%= f.association :superior, wrapper_html: { class: 'col' }, include_blank: '选择所属组织' %>
+    </div>
+
+    <div class="row row-cols-2">
+      <%= f.input :contacts, wrapper_html: { class: 'col' }, placeholder: '联系人' %>
+      <%= f.input :mobile, wrapper_html: { class: 'col' }, placeholder: '联系方式' %>
+    </div>
+    <%= f.input :intro, placeholder: '简介' %>
+    <%= f.input :desc, placeholder: '详细描述' %>
   </div>
 
   <div class="form-actions mt-3">

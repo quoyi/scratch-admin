@@ -16,7 +16,7 @@
 #  last_sign_in_ip        :string
 #  nick                   :string
 #  mobile                 :string
-#  gender                 :integer          default("female")
+#  gender                 :integer          default("unkown")
 #  token                  :string
 #  status                 :integer          default("enabled")
 #  role                   :integer          default("normal")

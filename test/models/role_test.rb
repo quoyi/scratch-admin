@@ -6,7 +6,7 @@
 #
 #  code            :string
 #  name            :string
-#  status          :integer          default(0)
+#  status          :integer          default("enabled")
 #  intro           :text
 #  desc            :text
 #  organization_id :bigint

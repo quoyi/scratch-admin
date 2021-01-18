@@ -1,0 +1,88 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.permissions'), [:admin, :permissions] %></li>
+  <li class="breadcrumb-item active"><%= t('show') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('edit'), [:edit, :admin, @permission], class: 'btn btn-sm btn-primary' %>
+  <%= link_to t('back'), [:admin, :permissions], class: 'btn btn-sm btn-info' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered mb-0 fs--1">
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('code') %>
+        </th>
+        <td>
+          <%= @permission.code %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('name') %>
+        </th>
+        <td>
+          <%= @permission.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('status') %>
+        </th>
+        <td>
+          <%= @permission.status_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('intro') %>
+        </th>
+        <td>
+          <%= @permission.intro %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('desc') %>
+        </th>
+        <td>
+          <%= @permission.desc %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('namespace') %>
+        </th>
+        <td>
+          <%= @permission.namespace %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('controller') %>
+        </th>
+        <td>
+          <%= @permission.controller %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Permission.human_attribute_name('action') %>
+        </th>
+        <td>
+          <%= @permission.action %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

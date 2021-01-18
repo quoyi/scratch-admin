@@ -6,7 +6,7 @@
 #
 #  code            :string
 #  name            :string
-#  status          :integer          default(0)
+#  status          :integer          default("enabled")
 #  intro           :text
 #  desc            :text
 #  organization_id :bigint
@@ -25,6 +25,7 @@ class Role < ApplicationRecord
 
   belongs_to :organization, optional: true
   # has_and_belongs_to_many :users
+  has_and_belongs_to_many :permissions
 
   validates :code, presence: true, uniqueness: { scope: :organization_id }
   validates :name, presence: true, uniqueness: { scope: :organization_id }

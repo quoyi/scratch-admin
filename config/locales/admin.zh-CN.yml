@@ -2,4 +2,5 @@ zh-CN:
   admin:
     organizations: 组织管理
     roles: 角色管理
+    permissions: 权限管理
     users: 用户管理

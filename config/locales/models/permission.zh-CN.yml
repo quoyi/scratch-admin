@@ -1,0 +1,20 @@
+zh-CN:
+  activerecord:
+    models:
+      permission: 权限
+    attributes:
+      permission:
+        code: 编码
+        name: 名称
+        status: 状态
+        intro: 简介
+        desc: 描述
+        namespace: 命名空间
+        controller: 控制器
+        action: 功能
+    enums:
+      permission:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除

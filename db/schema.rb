@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_083443) do
+ActiveRecord::Schema.define(version: 2021_01_18_090635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,29 @@ ActiveRecord::Schema.define(version: 2021_01_18_083443) do
     t.index ["code", "superior_id"], name: "index_organizations_on_code_and_superior_id", unique: true
     t.index ["name", "superior_id"], name: "index_organizations_on_name_and_superior_id", unique: true
     t.index ["superior_id"], name: "index_organizations_on_superior_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "status", default: 0
+    t.text "intro"
+    t.text "desc"
+    t.string "namespace"
+    t.string "controller"
+    t.string "action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "index_permissions_on_code", unique: true
+    t.index ["name"], name: "index_permissions_on_name", unique: true
+  end
+
+  create_table "permissions_roles", id: false, force: :cascade do |t|
+    t.bigint "permission_id"
+    t.bigint "role_id"
+    t.index ["permission_id", "role_id"], name: "index_permissions_roles_on_permission_id_and_role_id", unique: true
+    t.index ["permission_id"], name: "index_permissions_roles_on_permission_id"
+    t.index ["role_id"], name: "index_permissions_roles_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|

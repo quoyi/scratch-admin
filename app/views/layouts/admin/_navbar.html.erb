@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
   <div class="container-fluid">
-    <%= link_to root_path, class: 'navbar-brand' do %>
+    <%= link_to admin_root_path, class: 'navbar-brand' do %>
       <%= image_pack_tag 'brand.png', class: 'd-inline-block align-top mr-1', width: 30, height: 30, loading: 'lazy', alt: 'Brand' %>
       <%= Setting.app_name %>
     <% end %>
@@ -13,20 +13,20 @@
       <%# 功能导航 %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to '首页', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Link', '#!', class: 'nav-link' %>
+          <%= link_to '基础数据', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
+          <%= link_to '基础数据', '#!', id: 'navbarDropdown',
+                                       class: 'nav-link dropdown-toggle',
+                                       role: 'button',
+                                       data: { toggle: 'dropdown' },
+                                       aria: { haspopup: true, expanded: false }
+          %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <%= link_to '组织管理', [:admin, :organizations], class: "dropdown-item" %>
+            <%#= link_to '用户管理', [:admin, :users], class: "dropdown-item" %>
             <hr class="dropdown-divider">
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Something</a>
           </div>
         </li>
         <li class="nav-item">
@@ -38,9 +38,13 @@
       <div class="d-flex my-2 my-md-0">
         <% if current_user %>
           <%= link_to '<span class="fas fa-bell"></span>'.html_safe, '#!', class: 'btn btn-link text-muted' %>
-          <%= link_to '<span class="fas fa-plus"></span>'.html_safe, '#!', class: 'btn btn-link text-muted' %>
           <div class="dropdown mr-n3">
-            <%= link_to current_user.username, '#', class: 'btn btn-link text-muted dropdown-toggle', id: 'accountDropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { expanded: false } %>
+            <%= link_to current_user.username, '#', id: 'accountDropdown',
+                                                    class: 'btn btn-link text-muted dropdown-toggle',
+                                                    role: 'button',
+                                                    data: { toggle: 'dropdown' },
+                                                    aria: { expanded: false }
+            %>
             <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="accountDropdown">
               <%= link_to '个人设置', edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to '修改密码', edit_user_password_path, class: 'dropdown-item' %>

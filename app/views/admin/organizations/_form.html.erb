@@ -1,0 +1,19 @@
+<%= simple_form_for(@organization, url: [:admin, @organization.new_record? ? :organizations : @organization]) do |f| %>
+
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :code %>
+    <%= f.input :name %>
+    <%= f.input :desc %>
+    <%= f.input :intro %>
+    <%= f.input :contacts %>
+    <%= f.input :mobile %>
+    <%= f.association :superior %>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= f.button :submit, t('save'), class: 'btn btn-primary' %>
+    <%= link_to t('cancel'), [:admin, :organizations], class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>

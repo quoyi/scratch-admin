@@ -1,0 +1,54 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item active"><%= t('organizations') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to '新建', [:new, :admin, :organization], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
+<% end %>
+
+<div class="card mb-1 mb-sm-2 mb-lg-3">
+  <div class="card-body">
+    <%= render 'search' %>
+  </div>
+</div>
+
+<div class="card mb-1 mb-sm-2 mb-lg-3">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th><%= Organization.human_attribute_name('code') %></th>
+            <th><%= Organization.human_attribute_name('name') %></th>
+            <th><%= Organization.human_attribute_name('status') %></th>
+            <th><%= Organization.human_attribute_name('desc') %></th>
+            <th><%= Organization.human_attribute_name('intro') %></th>
+            <th><%= Organization.human_attribute_name('contacts') %></th>
+            <th><%= Organization.human_attribute_name('mobile') %></th>
+            <th><%= Organization.human_attribute_name('superior') %></th>
+            <th colspan="3"><%= I18n.t('operation') %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @organizations.each do |organization| %>
+            <tr>
+              <td><%= organization.code %></td>
+              <td><%= organization.name %></td>
+              <td><%= organization.status %></td>
+              <td><%= organization.desc %></td>
+              <td><%= organization.intro %></td>
+              <td><%= organization.contacts %></td>
+              <td><%= organization.mobile %></td>
+              <td><%= organization.superior_id %></td>
+              <td><%= link_to t('show'), [:admin, organization], class: 'text-nowrap' %></td>
+              <td><%= link_to t('edit'), [:edit, :admin, organization], class: 'text-nowrap' %></td>
+              <td><%= link_to t('destroy'), [:admin, organization], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <%= paginate @organizations %>
+  </div>
+</div>

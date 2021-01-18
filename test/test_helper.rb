@@ -6,6 +6,8 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'capybara/minitest'
 
+Dir[Rails.root.join('test/lib/*_helper.rb')].sort.each { |file| require file }
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)

@@ -1,0 +1,50 @@
+zh-CN:
+  index: 列表
+  show: 详情
+  edit: 编辑
+  update: 更新
+  new: 新建
+  create: 创建
+  batch: 批量创建
+  destroy: 删除
+  operation: 操作
+  back: 返回
+  save: 提交
+  cancel: 取消
+  delete_confirm: 确认删除？
+  admin: 
+    dashboard: 管理首页
+    actions:
+      created: 已创建。
+      updated: 已更新。
+      deleted: 已删除。
+  users:
+    passwords:
+      new:
+        forgot: 密码找回
+        send: 发送验证码
+    registrations:
+      new:
+        submit: 注册账号
+    sessions:
+      new:
+        submit: 登录系统
+    unlocks:
+      new:
+        unlock: 账号解锁
+        send: 发送验证码
+  page:
+    login: 登录
+    logout: 退出
+    register: 注册
+    dashboard: 个人首页
+    system: 管理系统
+    copyright: JJERP.CN
+    icp: 鄂 ICP 备 16005840 号
+  helpers:
+    submit:
+      create: 提交
+  activerecord:
+    errors:
+      messages:
+        taken: 已存在

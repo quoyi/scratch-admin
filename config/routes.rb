@@ -2,6 +2,10 @@
 
 Rails.application.routes.draw do
   namespace :admin do
+    resources :categories
+  end
+  resources :categories
+  namespace :admin do
     resources :permissions
   end
   resources :permissions

@@ -1,0 +1,70 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.categories'), [:admin, :categories] %></li>
+  <li class="breadcrumb-item active"><%= t('show') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('edit'), [:edit, :admin, @category], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
+  <%= link_to t('back'), [:admin, :categories], class: 'btn btn-sm btn-info mt-n2 mb-n1' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered mb-0 fs--1">
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('code') %>
+        </th>
+        <td>
+          <%= @category.code %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('name') %>
+        </th>
+        <td>
+          <%= @category.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('status') %>
+        </th>
+        <td>
+          <%= @category.status_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('desc') %>
+        </th>
+        <td>
+          <%= @category.desc %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('superior') %>
+        </th>
+        <td>
+          <%= @category.superior_id %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Category.human_attribute_name('classifiable') %>
+        </th>
+        <td>
+          <%= @category.classifiable_id %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

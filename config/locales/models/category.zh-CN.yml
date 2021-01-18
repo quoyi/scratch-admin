@@ -1,0 +1,18 @@
+zh-CN:
+  activerecord:
+    models:
+      category: 类型
+    attributes:
+      category:
+        code: 编码
+        name: 名称
+        status: 状态
+        desc: 描述
+        superior: 所属类型
+        classifiable: 分类
+    enums:
+      category:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除

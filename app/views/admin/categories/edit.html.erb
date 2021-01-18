@@ -1,0 +1,14 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.categories'), [:admin, :categories] %></li>
+  <li class="breadcrumb-item active"><%= t('edit') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('show'), [:admin, @category], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
+  <%= link_to t('back'), [:admin, :categories], class: 'btn btn-sm btn-info mt-n2 mb-n1' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', category: @category %>
+  </div>
+</div>

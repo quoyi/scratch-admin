@@ -1,0 +1,13 @@
+<%= simple_form_for(@q,
+                    wrapper: :inline_form,
+                    url: [:admin, :categories],
+                    method: :get,
+                    html: { class: 'search-form' }
+                   ) do |f| %>
+
+  <div class="row no-gutters">
+    <div class="col">
+      <%= f.input :name_cont, placeholder: 'Query by name contains' %>
+    </div>
+  </div>
+<% end %>

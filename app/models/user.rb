@@ -1,5 +1,22 @@
 # frozen_string_literal: true
 
+class User < ApplicationRecord
+  include User::Devisable
+  include Statable
+  include User::Completable
+
+  # has_and_belongs_to_many :roles
+
+  # before_validation :auto_complete
+
+  enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true
+  enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
+
+  def username
+    nick || mobile || email
+  end
+end
+
 # == Schema Information
 #
 # Table name: users
@@ -31,19 +48,3 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_token                 (token) UNIQUE
 #
-class User < ApplicationRecord
-  include User::Devisable
-  include Statable
-  include User::Completable
-
-  # has_and_belongs_to_many :roles
-
-  # before_validation :auto_complete
-
-  enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true
-  enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
-
-  def username
-    nick || mobile || email
-  end
-end

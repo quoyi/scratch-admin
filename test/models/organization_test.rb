@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+require 'test_helper'
+
+class OrganizationTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
+
 # == Schema Information
 #
 # Table name: organizations
@@ -19,10 +27,3 @@
 #  index_organizations_on_name_and_superior_id  (name,superior_id) UNIQUE
 #  index_organizations_on_superior_id           (superior_id)
 #
-require 'test_helper'
-
-class OrganizationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end

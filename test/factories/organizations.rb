@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+FactoryBot.define do
+  factory :organization do
+    code { 'MyString' }
+    name { 'MyString' }
+    status { 1 }
+    desc { 'MyText' }
+    intro { 'MyText' }
+    contacts { 'MyString' }
+    mobile { 'MyString' }
+    superior { nil }
+  end
+end
+
 # == Schema Information
 #
 # Table name: organizations
@@ -19,15 +32,3 @@
 #  index_organizations_on_name_and_superior_id  (name,superior_id) UNIQUE
 #  index_organizations_on_superior_id           (superior_id)
 #
-FactoryBot.define do
-  factory :organization do
-    code { 'MyString' }
-    name { 'MyString' }
-    status { 1 }
-    desc { 'MyText' }
-    intro { 'MyText' }
-    contacts { 'MyString' }
-    mobile { 'MyString' }
-    superior { nil }
-  end
-end

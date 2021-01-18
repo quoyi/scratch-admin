@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+require 'test_helper'
+
+class PermissionTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
+
 # == Schema Information
 #
 # Table name: permissions
@@ -18,10 +26,3 @@
 #  index_permissions_on_code  (code) UNIQUE
 #  index_permissions_on_name  (name) UNIQUE
 #
-require 'test_helper'
-
-class PermissionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end

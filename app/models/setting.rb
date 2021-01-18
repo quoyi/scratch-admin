@@ -1,18 +1,5 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: settings
-#
-#  var    :string           not null
-#  value  :text
-#  desc   :text
-#  preset :boolean          default(FALSE)
-#
-# Indexes
-#
-#  index_settings_on_var  (var) UNIQUE
-#
 class Setting < RailsSettings::Base
   cache_prefix { 'v1' }
 
@@ -34,3 +21,17 @@ class Setting < RailsSettings::Base
   field :registerable,     type: :boolean, default: false
   field :confirmable,      type: :boolean, default: false
 end
+
+# == Schema Information
+#
+# Table name: settings
+#
+#  var    :string           not null
+#  value  :text
+#  desc   :text
+#  preset :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_settings_on_var  (var) UNIQUE
+#

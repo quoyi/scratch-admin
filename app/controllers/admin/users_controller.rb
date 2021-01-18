@@ -61,7 +61,8 @@ class Admin::UsersController < AdminController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.fetch(:user, {}).permit(:mobile, :email, :password, :nick, :gender,
+                                     :token, :status, :role, :guest)
     end
 
     def search_params

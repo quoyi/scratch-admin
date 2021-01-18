@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Devisable
+module User::Devisable
   extend ActiveSupport::Concern
 
   included do
@@ -33,9 +33,5 @@ module Devisable
     #     user.email = data['email'] if data && user.email.blank?
     #   end
     # end
-  end
-
-  def username
-    nick || mobile || email
   end
 end

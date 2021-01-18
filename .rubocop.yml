@@ -6,6 +6,7 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'db/**/*'
+    - 'lib/generators/**/*'
     - 'node_modules/**/*'
 
 Bundler/OrderedGems:

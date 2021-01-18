@@ -1,19 +1,16 @@
-<%%# Navigation %>
-<%% content_for :breadcrumb do %>
-  <li class="breadcrumb-item active"><%%= admin('<%= plural_table_name %>') %></li>
+<%% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item active"><%%= t('<%= plural_table_name %>') %></li>
 <%% end %>
 <%% content_for :navbars do %>
-  <%%= link_to t('new'), [:new, :admin, :<%= singular_route_name %>], class: 'btn btn-sm btn-primary' %>
+  <%%= link_to t('new'), [:new, :admin, :<%= singular_route_name %>], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
 <%% end %>
 
-<%%# Search Form %>
 <div class="card mb-1 mb-sm-2 mb-lg-3">
   <div class="card-body">
     <%%= render 'search' %>
   </div>
 </div>
 
-<%%# Table %>
 <div class="card mb-1 mb-sm-2 mb-lg-3">
   <div class="card-body">
     <div class="table-responsive">
@@ -42,7 +39,6 @@
       </table>
     </div>
 
-    <%%# Pagination %>
     <%%= paginate @<%= plural_table_name %> %>
   </div>
 </div>

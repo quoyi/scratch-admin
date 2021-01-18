@@ -1,6 +1,5 @@
-<%%# Navigation %>
-<%% content_for :breadcrumb do %>
-  <li class="breadcrumb-item"><%%= link_to admin('<%= plural_table_name %>'), [:admin, :<%= plural_table_name %>] %></li>
+<%% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%%= link_to t('<%= plural_table_name %>'), [:admin, :<%= plural_table_name %>] %></li>
   <li class="breadcrumb-item active"><%%= t('edit') %></li>
 <%% end %>
 <%% content_for :navbars do %>
@@ -8,9 +7,8 @@
   <%%= link_to t('back'), [:admin, :<%= plural_table_name %>], class: 'btn btn-sm btn-info' %>
 <%% end %>
 
-<%%# Form %>
 <div class="card">
   <div class="card-body">
-    <%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>  
+    <%%= render 'form', <%= singular_table_name %>: @<%= singular_table_name %> %>
   </div>
 </div>

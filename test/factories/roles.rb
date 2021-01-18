@@ -19,11 +19,11 @@
 #
 FactoryBot.define do
   factory :role do
-    code { 'MyString' }
-    name { 'MyString' }
+    code { Role.generate_code }
+    name { Faker::Name.unique.name }
     status { 1 }
-    intro { 'MyText' }
-    desc { 'MyText' }
+    intro { Faker::Lorem.characters(number: 10) }
+    desc { Faker::Lorem.characters(number: 10) }
     organization { nil }
   end
 end

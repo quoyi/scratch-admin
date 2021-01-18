@@ -32,40 +32,18 @@
 #  index_users_on_token                 (token) UNIQUE
 #
 class User < ApplicationRecord
-  include Devisable
+  include User::Devisable
   include Statable
+  include User::Completable
 
   # has_and_belongs_to_many :roles
 
-  before_validation :auto_complete
+  # before_validation :auto_complete
 
   enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true
   enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
 
-  protected
-
-    def generate_mobile
-      self.mobile = "1#{rand(3..9)}#{rand(999_999_999)}"
-      generate_mobile if self.class.exists?(mobile: mobile)
-    end
-
-    def generate_email
-      self.email = "#{self.class.strftime(:long_serial)}@#{Setting.mail_suffix}"
-      generate_email if self.class.exists?(email: email)
-    end
-
-    def generate_token
-      self.token = SecureRandom.urlsafe_base64(Setting.token_length)
-      generate_token if self.class.exists?(token: token)
-    end
-
-  private
-
-    def auto_complete
-      generate_mobile if mobile.blank?
-      generate_token if token.blank?
-      generate_email if email.blank?
-
-      self.nick ||= email[/\A([^@\s]+)@[^@\s]+\z/i, 1]
-    end
+  def username
+    nick || mobile || email
+  end
 end

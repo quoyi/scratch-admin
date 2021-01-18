@@ -33,7 +33,7 @@
 #
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| "#{n}_#{Faker::Internet.email}" }
+    email { User.generate_email }
     password { 123_456 }
 
     reset_password_token { '1' }
@@ -46,5 +46,17 @@ FactoryBot.define do
     last_sign_in_at { Time.current }
     current_sign_in_ip { '127.0.0.1' }
     last_sign_in_ip { '127.0.0.1' }
+
+    mobile { User.generate_mobile }
+    nick { Faker::Name.name }
+    gender { 0 }
+    token { User.generate_token }
+    status { 0 }
+    guest { false }
+
+    factory :admin do
+      role { 'admin' }
+      guest { false }
+    end
   end
 end

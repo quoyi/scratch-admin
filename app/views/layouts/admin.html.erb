@@ -12,9 +12,9 @@
   <body>
     <%= render 'layouts/admin/navbar' %>
 
-    <%= render 'layouts/common/toast' %>
-
     <div class="container-fluid overflow-auto">
+      <%= render 'layouts/common/message' %>
+
       <%= yield %>
     </div>
   </body>

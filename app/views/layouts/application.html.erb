@@ -13,9 +13,9 @@
   <body>
     <%= render 'layouts/application/navbar' %>
 
-    <%= render 'layouts/common/toast' %>
-
     <div class="container-fluid overflow-auto">
+      <%= render 'layouts/common/message' %>
+
       <%= yield %>
     </div>
   </body>

@@ -1,0 +1,18 @@
+zh-CN:
+  activerecord:
+    models:
+      role: 角色
+    attributes:
+      role:
+        code: 编码
+        name: 名称
+        status: 状态
+        intro: 简介
+        desc: 描述
+        organization: 所属组织
+    enums:
+      role:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除

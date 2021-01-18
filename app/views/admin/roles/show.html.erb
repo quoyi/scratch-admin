@@ -1,0 +1,70 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.roles'), [:admin, :roles] %></li>
+  <li class="breadcrumb-item active"><%= t('show') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('edit'), [:edit, :admin, @role], class: 'btn btn-sm btn-primary' %>
+  <%= link_to t('back'), [:admin, :roles], class: 'btn btn-sm btn-info' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered mb-0 fs--1">
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('code') %>
+        </th>
+        <td>
+          <%= @role.code %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('name') %>
+        </th>
+        <td>
+          <%= @role.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('status') %>
+        </th>
+        <td>
+          <%= @role.status_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('intro') %>
+        </th>
+        <td>
+          <%= @role.intro %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('desc') %>
+        </th>
+        <td>
+          <%= @role.desc %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Role.human_attribute_name('organization') %>
+        </th>
+        <td>
+          <%= @role.organization_name %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

@@ -165,6 +165,8 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    i18n-debug (1.2.0)
+      i18n (< 2)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     kaminari (1.2.1)
@@ -269,6 +271,8 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
+    rails-settings-cached (2.5.2)
+      rails (>= 5.0.0)
     railties (6.1.1)
       actionpack (= 6.1.1)
       activesupport (= 6.1.1)
@@ -379,6 +383,8 @@ GEM
       unf_ext
     unf (0.1.4-java)
     unf_ext (0.0.7.7)
+    unf_ext (0.0.7.7-x64-mingw32)
+    unf_ext (0.0.7.7-x86-mingw32)
     unicode-display_width (2.0.0)
     uniform_notifier (1.13.2)
     warden (1.2.9)
@@ -432,6 +438,7 @@ DEPENDENCIES
   faker!
   figaro
   hiredis
+  i18n-debug
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
@@ -445,6 +452,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
   rails-i18n
+  rails-settings-cached
   ransack
   redis (~> 4.0)
   rubocop

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title><%= Setting.app_name %></title>
+
+    <%= render 'layouts/common/meta' %>
+
+    <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/admin/navbar' %>
+
+    <div class="container-fluid min-vh-100 mpt-navbar overflow-auto">
+      <%= render 'layouts/admin/breadcrumb' %>
+
+      <%= render 'layouts/common/message' %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+$navbar-top-height: $spacer * 3.5;
+
+.t-0 {
+  top: 0;
+}
+
+.b-0 {
+  bottom: 0;
+}
+
+.l-0 {
+  left: 0;
+}
+
+.r-0 {
+  right: 0;
+}
+
+.overflow-x {
+  overflow-x: scroll;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+}
+
+.mpt-navbar {
+  margin-top: - $navbar-top-height;
+  padding-top: $navbar-top-height;
+}
+
+.alert {
+  margin: $spacer * 0.25;
+
+  &-notice {
+    @extend .alert-success;
+  }
+  &-alert {
+    @extend .alert-primary;
+  }
+  &-error {
+    @extend .alert-danger;
+  }
+}

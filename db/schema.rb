@@ -10,10 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_030605) do
+ActiveRecord::Schema.define(version: 2021_01_18_090635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.integer "status", default: 0
+    t.text "desc"
+    t.text "intro"
+    t.string "contacts"
+    t.string "mobile"
+    t.bigint "superior_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code", "superior_id"], name: "index_organizations_on_code_and_superior_id", unique: true
+    t.index ["name", "superior_id"], name: "index_organizations_on_name_and_superior_id", unique: true
+    t.index ["superior_id"], name: "index_organizations_on_superior_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "status", default: 0
+    t.text "intro"
+    t.text "desc"
+    t.string "namespace"
+    t.string "controller"
+    t.string "action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code"], name: "index_permissions_on_code", unique: true
+    t.index ["name"], name: "index_permissions_on_name", unique: true
+  end
+
+  create_table "permissions_roles", id: false, force: :cascade do |t|
+    t.bigint "permission_id"
+    t.bigint "role_id"
+    t.index ["permission_id", "role_id"], name: "index_permissions_roles_on_permission_id_and_role_id", unique: true
+    t.index ["permission_id"], name: "index_permissions_roles_on_permission_id"
+    t.index ["role_id"], name: "index_permissions_roles_on_role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "status", default: 0
+    t.text "intro"
+    t.text "desc"
+    t.bigint "organization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organization_id", "code"], name: "index_roles_on_organization_id_and_code", unique: true
+    t.index ["organization_id", "name"], name: "index_roles_on_organization_id_and_name", unique: true
+    t.index ["organization_id"], name: "index_roles_on_organization_id"
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "user_id"
+    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id", unique: true
+    t.index ["role_id"], name: "index_roles_users_on_role_id"
+    t.index ["user_id"], name: "index_roles_users_on_user_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "var", null: false
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "desc"
+    t.boolean "preset", default: false
+    t.index ["var"], name: "index_settings_on_var", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +99,19 @@ ActiveRecord::Schema.define(version: 2021_01_16_030605) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nick"
+    t.string "mobile"
+    t.integer "gender", default: 0
+    t.string "token"
+    t.integer "status", default: 0
+    t.integer "role", default: 0
+    t.boolean "guest", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["guest"], name: "index_users_on_guest"
+    t.index ["mobile"], name: "index_users_on_mobile", unique: true
+    t.index ["nick"], name: "index_users_on_nick"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["token"], name: "index_users_on_token", unique: true
   end
 
 end

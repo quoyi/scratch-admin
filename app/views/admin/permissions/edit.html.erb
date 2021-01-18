@@ -1,0 +1,14 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.permissions'), [:admin, :permissions] %></li>
+  <li class="breadcrumb-item active"><%= t('edit') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('show'), [:admin, @permission], class: 'btn btn-sm btn-primary' %>
+  <%= link_to t('back'), [:admin, :permissions], class: 'btn btn-sm btn-info' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', permission: @permission %>
+  </div>
+</div>

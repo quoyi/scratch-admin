@@ -4,6 +4,9 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
+    # login_as create(:user)
+    log_in_user
+
     @user = create(:user)
   end
 
@@ -18,9 +21,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create user' do
-    @new = build(:user)
+    log_out
+    @new_user = build(:user)
     assert_difference('User.count') do
-      post users_url, params: { user: @new.as_json.merge(password: 123_456) }
+      post users_url, params: { user: @new_user.as_json }
     end
 
     assert_redirected_to root_url # user_url(User.last) devise redirected to root_path

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>ScratchAdmin</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title><%= Setting.app_name %></title>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/common/meta' %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'react' %>
   </head>
 
   <body>
-    <%= render 'layouts/message' %>
+    <%= render 'layouts/application/navbar' %>
 
-    <%= yield %>
+    <div class="container-fluid min-vh-100 mpt-navbar overflow-auto">
+      <%= render 'layouts/common/message' %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,10 @@
+// override and custom variables
+@import "./variables";
+
+@import "~bootstrap/scss/bootstrap";
+
+// extend bootstrap classes
+@import "./extends";
+
+// custom styles
+@import "./user";

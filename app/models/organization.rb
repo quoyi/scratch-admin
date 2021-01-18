@@ -3,19 +3,7 @@
 class Organization < ApplicationRecord
   include Codable
   include Statable
-
-  delegate :name, to: :superior, prefix: true, allow_nil: true
-
-  belongs_to :superior, class_name: 'Organization', inverse_of: :juniors,
-                        optional: true
-  has_many :juniors, class_name: 'Organization', foreign_key: 'superior_id',
-                     dependent: :delete_all, inverse_of: :superior
-
-  validates :code, presence: true, uniqueness: { scope: :superior_id }
-  validates :name, presence: true, uniqueness: { scope: :superior_id }
-
-  scope :roots, -> { where(superior_id: nil) }
-  scope :nodes, -> { where.not(superior_id: nil) }
+  include Gradable
 end
 
 # == Schema Information

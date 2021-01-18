@@ -1,0 +1,20 @@
+zh-CN:
+  activerecord:
+    models:
+      organization: 组织
+    attributes:
+      organization:
+        code: 编码
+        name: 名称
+        status: 状态
+        intro: 简介
+        desc: 描述
+        mobile: 联系方式
+        contacts: 联系人
+        superior: 所属组织
+    enums:
+      organization:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除

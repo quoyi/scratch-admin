@@ -9,7 +9,7 @@
     <%= f.input :intro %>
     <%= f.input :contacts %>
     <%= f.input :mobile %>
-    <%= f.association :superior %>
+    <%= f.association :superior, include_blank: '选择上级组织' %>
   </div>
 
   <div class="form-actions mt-3">

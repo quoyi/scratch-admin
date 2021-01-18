@@ -54,6 +54,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'listen', '~> 3.3'
+  gem 'i18n-debug'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'

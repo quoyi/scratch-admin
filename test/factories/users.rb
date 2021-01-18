@@ -36,7 +36,7 @@ FactoryBot.define do
     email { User.generate_email }
     password { 123_456 }
 
-    reset_password_token { '1' }
+    reset_password_token { Faker::Lorem.unique.characters(number: 50) }
     reset_password_sent_at { Time.current }
 
     remember_created_at { Time.current }

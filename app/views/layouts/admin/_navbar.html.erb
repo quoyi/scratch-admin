@@ -41,7 +41,7 @@
           <li class="nav-item"><%= link_to '<span class="fas fa-plus"></span>'.html_safe, '#!', class: 'nav-link' %></li>
           <li class="nav-item dropdown">
             <%= link_to current_user.username, '#', class: 'nav-link dropdown-toggle', id: 'accountDropdown', role: 'button', data: { 'toggle': 'dropdown' }, aria: { expanded: false } %>
-            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="accountDropdown">
+            <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="accountDropdown">
               <%= link_to '个人设置', edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to '修改密码', edit_user_password_path, class: 'dropdown-item' %>
               <hr class="dropdown-divider">

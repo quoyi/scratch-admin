@@ -4,8 +4,7 @@ require_relative '../../test_helper'
 
 class Admin::RolesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @admin = create(:admin)
-    login_as @admin
+    log_in_admin
 
     @role = create(:role)
   end

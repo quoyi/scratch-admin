@@ -16,7 +16,7 @@
 #  last_sign_in_ip        :string
 #  nick                   :string
 #  mobile                 :string
-#  gender                 :integer          default("unkown")
+#  gender                 :integer          default("unknown")
 #  token                  :string
 #  status                 :integer          default("enabled")
 #  role                   :integer          default("normal")
@@ -37,7 +37,7 @@ class User < ApplicationRecord
 
   before_validation :auto_complete
 
-  enum gender: { unkown: 0, female: 1, male: 2 }, _prefix: true
+  enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true
   enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
 
   protected

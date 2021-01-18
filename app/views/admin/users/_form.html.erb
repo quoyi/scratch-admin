@@ -1,0 +1,49 @@
+<%= simple_form_for(@user, url: [:admin, @user.new_record? ? :users : @user]) do |f| %>
+
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row row-cols-2">
+      <%= f.input :mobile, required: true,
+                           placeholder: '手机号',
+                           readonly: !@user.new_record?,
+                           wrapper_html: { class: 'col' },
+                           input_html: { autocomplete: 'none' }
+      %>
+      <%= f.input :email, required: true,
+                          placeholder: '邮箱',
+                          readonly: !@user.new_record?,
+                          wrapper_html: { class: 'col' },
+                          input_html: { autocomplete: 'none' }
+      %>
+    </div>
+
+    <div class="row row-cols-2">
+      <%= f.input :password, required: true,
+                             placeholder: '密码',
+                             readonly: !@user.new_record?,
+                             wrapper_html: { class: 'col' },
+                             input_html: { autocomplete: 'none' }
+      %>
+      <%= f.input :role, collection: User.role_options,
+                         prompt: '选择用户角色',
+                         wrapper_html: { class: 'col' }
+      %>
+    </div>
+
+    <div class="row row-cols-2">
+      <%= f.input :nick, wrapper_html: { class: 'col' }, placeholder: '昵称' %>
+      <%= f.input :gender, as: :radio_buttons,
+                           collection: User.gender_options,
+                           placeholder: '昵称',
+                           wrapper: :vertical_collection_inline,
+                           wrapper_html: { class: 'col' }
+      %>
+    </div>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= f.button :submit, t('save'), class: 'btn btn-primary' %>
+    <%= link_to t('cancel'), [:admin, :users], class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>

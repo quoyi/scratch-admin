@@ -1,0 +1,13 @@
+<%= simple_form_for(@q,
+                    wrapper: :inline_form,
+                    url: [:admin, :users],
+                    method: :get,
+                    html: { class: 'search-form' }
+                   ) do |f| %>
+
+  <div class="row no-gutters">
+    <div class="col">
+      <%= f.input :email_cont, placeholder: 'Query by email contains' %>
+    </div>
+  </div>
+<% end %>

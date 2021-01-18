@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="applicationNavbar">
       <%# 功能导航 %>
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <%= link_to '基础数据', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
-        </li>
+        <%# <li class="nav-item"> %>
+          <%#= link_to '基础数据', root_path, class: "nav-link #{'active' if controller_name == 'home'}", aria: { current: 'page' } %>
+        <%# </li> %>
         <li class="nav-item dropdown">
           <%= link_to '基础数据', '#!', id: 'navbarDropdown',
                                        class: 'nav-link dropdown-toggle',
@@ -24,7 +24,7 @@
           %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to '组织管理', [:admin, :organizations], class: "dropdown-item" %>
-            <%#= link_to '用户管理', [:admin, :users], class: "dropdown-item" %>
+            <%= link_to '用户管理', [:admin, :users], class: "dropdown-item" %>
             <hr class="dropdown-divider">
             <a class="dropdown-item" href="#">Something</a>
           </div>

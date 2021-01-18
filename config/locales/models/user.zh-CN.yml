@@ -5,10 +5,26 @@ zh-CN:
     attributes:
       user:
         login: 账号
+        mobile: 手机号
         email: 邮箱
         password: 密码
         password_confirmation: 重复密码
         remember_me: 记住我的登录状态
+        nick: 昵称
+        gender: 性别
+        role: 角色
+    enums:
+      user:
+        gender:
+          unknown: 未知
+          female: 女
+          male: 男
+        role:
+          normal: 普通用户
+          vip: 注册会员
+          developer: 开发者
+          manager: 维护员
+          admin: 管理员
     errors:
       models:
         user:

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+<nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
   <div class="container-fluid">
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_pack_tag 'brand.png', class: 'd-inline-block align-top mr-1', width: 30, height: 30, loading: 'lazy', alt: 'Brand' %>
@@ -39,7 +39,7 @@
           </li>
         </ul>
       <% else %>
-        <div class="d-flex my-2 my-lg-0">
+        <div class="d-flex my-2 my-md-0">
           <%= link_to '注册', new_user_registration_path, class: 'btn btn-sm btn-outline-success mr-2' %>
           <%= link_to '登录', new_user_session_path, class: 'btn btn-sm btn-outline-primary' %>
         </div>

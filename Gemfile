@@ -30,6 +30,7 @@ gem 'ancestry'
 gem 'paper_trail', github: 'paper-trail-gem/paper_trail'
 gem 'faker', github: 'faker-ruby/faker', branch: :master
 gem 'enumize'
+gem 'active_storage_validations'
 gem 'activestorage-aliyun'
 gem 'pghero', github: 'ankane/pghero'
 # gem 'exception-track'

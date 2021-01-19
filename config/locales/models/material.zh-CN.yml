@@ -1,0 +1,23 @@
+zh-CN:
+  activerecord:
+    models:
+      material: 材料
+    attributes:
+      material:
+        code: 编码
+        name: 名称
+        status: 状态
+        mold: 模式
+        used: 使用次数
+        info: 详情
+        category: 类型
+        uploader: 上传者
+    enums:
+      material:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除
+        mold:
+          private: 私有
+          public: 公开

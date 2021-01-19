@@ -1,0 +1,31 @@
+<%= simple_form_for(@material, url: [:admin, @material.new_record? ? :materials : @material]) do |f| %>
+
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%#= f.input :code %>
+
+    <div class="row row-cols-2">
+      <%= f.input :name, required: true, placeholder: '名称', wrapper_html: { class: 'col' } %>
+      <%= f.association :category, collection: Category.roots, include_blank: '选择所属类型', wrapper_html: { class: 'col' } %>
+    </div>
+
+    <div class="row row-cols-2">
+      <%= f.input :mold, as: :radio_buttons,
+                         collection: Material.mold_options,
+                         placeholder: '模式',
+                         wrapper: :vertical_collection_inline,
+                         wrapper_html: { class: 'col' }
+      %>
+      <%= f.input :used, placeholder: '使用次数', wrapper_html: { class: 'col' }, input_html: { min: 0 } %>
+    </div>
+
+    <%= f.input :info, placeholder: '材料信息' %>
+    <%#= f.association :uploader %>
+  </div>
+
+  <div class="form-actions mt-3">
+    <%= f.button :submit, t('save'), class: 'btn btn-primary' %>
+    <%= link_to t('cancel'), [:admin, :materials], class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>

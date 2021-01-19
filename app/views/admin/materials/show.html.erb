@@ -1,0 +1,88 @@
+<% content_for :breadcrumbs do %>
+  <li class="breadcrumb-item"><%= link_to t('admin.materials'), [:admin, :materials] %></li>
+  <li class="breadcrumb-item active"><%= t('show') %></li>
+<% end %>
+<% content_for :navbars do %>
+  <%= link_to t('edit'), [:edit, :admin, @material], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
+  <%= link_to t('back'), [:admin, :materials], class: 'btn btn-sm btn-info mt-n2 mb-n1' %>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table table-bordered mb-0 fs--1">
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('code') %>
+        </th>
+        <td>
+          <%= @material.code %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('name') %>
+        </th>
+        <td>
+          <%= @material.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('status') %>
+        </th>
+        <td>
+          <%= @material.status_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('mold') %>
+        </th>
+        <td>
+          <%= @material.mold_name %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('used') %>
+        </th>
+        <td>
+          <%= @material.used %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('info') %>
+        </th>
+        <td>
+          <%= @material.info %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('category') %>
+        </th>
+        <td>
+          <%= @material.category_id %>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="w-25 bg-100 text-right">
+          <%= Material.human_attribute_name('uploader') %>
+        </th>
+        <td>
+          <%= @material.uploader_id %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

@@ -12,7 +12,7 @@ zh-CN:
   save: 提交
   cancel: 取消
   delete_confirm: 确认删除？
-  admin: 
+  admin:
     dashboard: 管理首页
     actions:
       created: 已创建。
@@ -48,3 +48,24 @@ zh-CN:
     errors:
       messages:
         taken: 已存在
+  errors:
+    messages:
+      content_type_invalid: "文件格式错误"
+      file_size_out_of_range: "文件大小 %{file_size} 超出限制"
+      limit_out_of_range: "文件数量超出限制"
+      image_metadata_missing: "不是图片"
+      dimension_min_inclusion: "[宽, 高] 必须大于或等于 [%{width}, %{height}]"
+      dimension_max_inclusion: "[宽, 高] 必须小于或等于 [%{width}, %{height}]"
+      dimension_width_inclusion: "不在 [%{min}, %{max}] 范围"
+      dimension_height_inclusion: "高度不在 [%{min}, %{max}] 范围"
+      dimension_width_greater_than_or_equal_to: "宽度必须大于或等于 %{length}"
+      dimension_height_greater_than_or_equal_to: "高度必须大于或等于 %{length}"
+      dimension_width_less_than_or_equal_to: "宽度必须小于或等于 %{length}"
+      dimension_height_less_than_or_equal_to: "高度必须小于或等于 %{length}"
+      dimension_width_equal_to: "宽度必须等于 %{length}"
+      dimension_height_equal_to: "高度必须等于 %{length}"
+      aspect_ratio_not_square: "宽高必须相等"
+      aspect_ratio_not_portrait: "高度必须大于宽度"
+      aspect_ratio_not_landscape: "宽度必须大于高度"
+      aspect_ratio_is_not: "宽高比必须为 %{aspect_ratio}"
+      aspect_ratio_unknown: "未知宽高比"

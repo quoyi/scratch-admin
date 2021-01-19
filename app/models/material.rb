@@ -7,9 +7,10 @@ class Material < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :uploader, class_name: 'User', optional: true
 
-  # has_one_attached :accessory
+  has_one_attached :accessory
 
   validates :code, presence: true, uniqueness: true
+  # validates :accessory, attached: true, content_type: { in: %i[png jpg jpeg], message: '必须是图片' }
 
   enum mold: { private: 0, public: 1 }, _suffix: true
 end

@@ -5,7 +5,7 @@ class Admin::CategoriesController < AdminController
 
   # GET /admin/categories
   def index
-    @q = Category.ransack(search_params)
+    @q = Category.includes(:superior, :juniors).ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @categories = @q.result.page(params[:page])
   end

@@ -1,0 +1,11 @@
+<% category = local_assigns[:object] %>
+
+<tr>
+  <td><%= category.name %></td>
+  <td><%= category.superior_name %></td>
+  <td><%= category.status_name %></td>
+  <td><%= category.classifiable_id %></td>
+  <td><%= link_to t('show'), [:admin, category], class: 'text-nowrap' %></td>
+  <td><%= link_to t('edit'), [:edit, :admin, category], class: 'text-nowrap' %></td>
+  <td><%= link_to t('destroy'), [:admin, category], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+</tr>

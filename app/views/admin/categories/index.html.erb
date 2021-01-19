@@ -5,7 +5,7 @@
   <%= link_to t('new'), [:new, :admin, :category], class: 'btn btn-sm btn-primary mt-n2 mb-n1' %>
 <% end %>
 
-<div class="card mb-1 mb-sm-2 mb-lg-3">
+<div class="card border-0 mb-1 mb-sm-2 mb-lg-3">
   <div class="card-body">
     <%= render 'search' %>
   </div>
@@ -27,15 +27,7 @@
 
         <tbody>
           <% @categories.each do |category| %>
-            <tr>
-              <td><%= category.name %></td>
-              <td><%= category.superior_name %></td>
-              <td><%= category.status_name %></td>
-              <td><%= category.classifiable_id %></td>
-              <td><%= link_to t('show'), [:admin, category], class: 'text-nowrap' %></td>
-              <td><%= link_to t('edit'), [:edit, :admin, category], class: 'text-nowrap' %></td>
-              <td><%= link_to t('destroy'), [:admin, category], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
-            </tr>
+            <% draw_tree(partial: 'category', object: category) %>
           <% end %>
         </tbody>
       </table>

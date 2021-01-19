@@ -1,0 +1,13 @@
+<% organization = local_assigns[:object] %>
+
+<tr>
+  <td><%= organization.code %></td>
+  <td><%= organization.name %></td>
+  <td><%= organization.superior_name %></td>
+  <td><%= organization.status_name %></td>
+  <td><%= organization.contacts %></td>
+  <td><%= organization.mobile %></td>
+  <td><%= link_to t('show'), [:admin, organization], class: 'text-nowrap' %></td>
+  <td><%= link_to t('edit'), [:edit, :admin, organization], class: 'text-nowrap' %></td>
+  <td><%= link_to t('destroy'), [:admin, organization], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+</tr>

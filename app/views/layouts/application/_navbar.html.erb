@@ -30,7 +30,7 @@
           <%= link_to '<span class="fas fa-bell"></span>'.html_safe, '#!', class: 'btn btn-link text-muted' %>
           <%= link_to '<span class="fas fa-plus"></span>'.html_safe, '#!', class: 'btn btn-link text-muted' %>
           <div class="dropdown mr-n3">
-            <%= link_to current_user.username, '#', class: 'btn btn-link text-muted dropdown-toggle', id: 'accountDropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { expanded: false } %>
+            <%= link_to current_user.name, '#', class: 'btn btn-link text-muted dropdown-toggle', id: 'accountDropdown', role: 'button', data: { toggle: 'dropdown' }, aria: { expanded: false } %>
             <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="accountDropdown">
               <%= link_to '个人设置', edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to '修改密码', edit_user_password_path, class: 'dropdown-item' %>

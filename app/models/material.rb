@@ -4,12 +4,15 @@ class Material < ApplicationRecord
   include Codable
   include Statable
 
+  delegate :name, to: :uploader, prefix: true, allow_nil: true
+
   belongs_to :category, optional: true
-  belongs_to :uploader, class_name: 'User', optional: true
+  belongs_to :uploader, class_name: 'User', inverse_of: :uploaded_materials, optional: true
 
   has_one_attached :accessory
 
   validates :code, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
   # validates :accessory, attached: true, content_type: { in: %i[png jpg jpeg], message: '必须是图片' }
 
   enum mold: { private: 0, public: 1 }, _suffix: true

@@ -30,6 +30,7 @@
             <hr class="dropdown-divider">
             <%= link_to '类型管理', [:admin, :categories], class: "dropdown-item" %>
             <%= link_to '材料管理', [:admin, :materials], class: "dropdown-item" %>
+            <%= link_to '课程管理', [:admin, :courses], class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item">
@@ -42,7 +43,7 @@
         <% if current_user %>
           <%= link_to '<span class="fas fa-bell"></span>'.html_safe, '#!', class: 'btn btn-link text-muted' %>
           <div class="dropdown mr-n3">
-            <%= link_to current_user.username, '#', id: 'accountDropdown',
+            <%= link_to current_user.name, '#', id: 'accountDropdown',
                                                     class: 'btn btn-link text-muted dropdown-toggle',
                                                     role: 'button',
                                                     data: { toggle: 'dropdown' },

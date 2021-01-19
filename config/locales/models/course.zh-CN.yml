@@ -1,0 +1,26 @@
+zh-CN:
+  activerecord:
+    models:
+      course: 课程
+    attributes:
+      course:
+        code: 编码
+        name: 名称
+        status: 状态
+        mold: 模式
+        seq: 顺序
+        juniors_count: 节点数量
+        intro: 简介
+        desc: 详情
+        superior: 所属课程
+        prev: 上一节
+        creator: 创建者
+    enums:
+      course:
+        status:
+          enabled: 可使用
+          disabled: 已禁用
+          deleted: 已删除
+        mold:
+          private: 私有
+          public: 公开

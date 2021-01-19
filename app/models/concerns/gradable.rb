@@ -7,8 +7,8 @@ module Gradable
     delegate :name, to: :superior, prefix: true, allow_nil: true
 
     # rubocop:disable Rails/ReflectionClassName
-    belongs_to :superior, class_name: name.to_s, inverse_of: :juniors, optional: true
-    has_many :juniors, class_name: name.to_s, foreign_key: 'superior_id',
+    belongs_to :superior, class_name: name, inverse_of: :juniors, optional: true
+    has_many :juniors, class_name: name, foreign_key: 'superior_id',
                        dependent: :delete_all, inverse_of: :superior
     # rubocop:enable Rails/ReflectionClassName
 

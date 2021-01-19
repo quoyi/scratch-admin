@@ -5,6 +5,14 @@ class User < ApplicationRecord
   include Statable
   include User::Completable
 
+  has_many :uploaded_materials, class_name: 'Material',
+                                dependent: :nullify,
+                                foreign_key: :uploader_id,
+                                inverse_of: :uploader
+  has_many :created_courses, class_name: 'Course',
+                             dependent: :nullify,
+                             foreign_key: :creator_id,
+                             inverse_of: :creator
   # has_and_belongs_to_many :roles
 
   # before_validation :auto_complete
@@ -12,7 +20,7 @@ class User < ApplicationRecord
   enum gender: { unknown: 0, female: 1, male: 2 }, _prefix: true
   enum role: { normal: 0, vip: 1, developer: 2, manager: 3, admin: 4 }
 
-  def username
+  def name
     nick || mobile || email
   end
 end

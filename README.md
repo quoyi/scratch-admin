@@ -1,24 +1,20 @@
-# README
+# Scratch-Admin
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![test](https://github.com/quoyi/scratch-admin/workflows/test/badge.svg)](https://github.com/quoyi/scratch-admin/actions?query=workflow%3ATest)
 
-Things you may want to cover:
+课程开发与管理、教务教学管理、教学平台。
 
-* Ruby version
+## 开发
 
-* System dependencies
+```bash
+git clone https://github.com/quoyi/scratch-admin.git
+cd scratch-admin
+bundle install
+rails db:create db:migrate db:seed
+rails s
+# visit http://localhost:3000
+```
 
-* Configuration
+## TODOs
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] 课程 `Course` 链表测试

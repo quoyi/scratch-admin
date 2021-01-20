@@ -75,7 +75,9 @@ jobs:
           cp config/database.ci.yml config/database.yml
           bundle exec rake db:create db:migrate
 
-      - name: Build resources
+      - name: Assets compile
+        env:
+          RAILS_ENV: test
         run: bundle exec rails webpacker:compile
 
       - name: Run tests

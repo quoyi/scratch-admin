@@ -64,7 +64,7 @@ jobs:
             bundle install --jobs 4 --retry 3
             yarn install
 
-      - name: Set up database
+      - name: Preparement
         env:
           RAILS_ENV: test
           PGHOST: localhost
@@ -74,11 +74,7 @@ jobs:
         run: |
           cp config/database.ci.yml config/database.yml
           bundle exec rake db:create db:migrate
-
-      - name: Assets compile
-        env:
-          RAILS_ENV: test
-        run: bundle exec rails webpacker:compile
+          bundle exec rails webpacker:compile
 
       - name: Run tests
         env:

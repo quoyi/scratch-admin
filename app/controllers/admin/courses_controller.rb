@@ -5,7 +5,7 @@ class Admin::CoursesController < AdminController
 
   # GET /admin/courses
   def index
-    @q = Course.ransack(search_params)
+    @q = Course.includes(:creator, :superior, :juniors).ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @courses = @q.result.page(params[:page])
   end

@@ -4,10 +4,7 @@ module Stackable
   extend ActiveSupport::Concern
 
   included do
-    before_create do
-      self.seq = peers.count + 1
-      self.prev_id = peers.last.try(:id) if superior
-    end
+    before_create :build_stack
     # after_commit :build_stack
     # before_create :build_stack
     # before_destroy :rebuild_stack
@@ -51,18 +48,20 @@ module Stackable
 
     # 构建链 self.prev_id = prev.try(:id)
     def build_stack
-      if peers.any?
-        # 有同辈节点
-        if peers.count > 1
+      self.seq = peers.count + 1
+      self.prev_id = peers.last.try(:id) if superior
+      # if peers.any?
+      #   # 有同辈节点
+      #   if peers.count > 1
 
-        else
-          self.seq = peers.count + 1
-        end
-        # update(prev_id: siblings.last.id)
-      else
-        # 无同辈节点
-        self.seq = 1
-      end
+      #   else
+      #     self.seq = peers.count + 1
+      #   end
+      #   # update(prev_id: siblings.last.id)
+      # else
+      #   # 无同辈节点
+      #   self.seq = 1
+      # end
     end
 
     # 删除栈中: after.prev_id = prev.id; 删除栈首: after.prev_id = nil; 删除栈尾: 无需处理

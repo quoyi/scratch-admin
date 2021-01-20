@@ -1,0 +1,13 @@
+<% course = local_assigns[:object] %>
+
+<tr>
+  <td><%= course.code %></td>
+  <td><%= course.name %></td>
+  <td><%= course.status_name %></td>
+  <td><%= course.mold_name %></td>
+  <td><%= course.juniors_count %></td>
+  <td><%= course.creator_name %></td>
+  <td><%= link_to t('show'), [:admin, course], class: 'text-nowrap' %></td>
+  <td><%= link_to t('edit'), [:edit, :admin, course], class: 'text-nowrap' %></td>
+  <td><%= link_to t('destroy'), [:admin, course], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+</tr>

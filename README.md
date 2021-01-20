@@ -1,6 +1,6 @@
 # Scratch-Admin
 
-[![test](https://github.com/quoyi/scratch-admin/workflows/test/badge.svg)](https://github.com/quoyi/scratch-admin/actions?query=workflow%3ATest)
+[![Test](https://github.com/quoyi/scratch-admin/workflows/Test/badge.svg)](https://github.com/quoyi/scratch-admin/actions?query=workflow%3ATest)
 
 课程开发与管理、教务教学管理、教学平台。
 

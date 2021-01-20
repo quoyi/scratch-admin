@@ -75,6 +75,9 @@ jobs:
           cp config/database.ci.yml config/database.yml
           bundle exec rake db:create db:migrate
 
+      - name: Build resources
+        run: bundle exec rails webpacker:compile
+
       - name: Run tests
         env:
           PGHOST: localhost

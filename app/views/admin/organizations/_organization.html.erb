@@ -1,11 +1,13 @@
-<tr>
-  <td><%= object.code %></td>
-  <td><%= object.name %></td>
-  <td><%= object.superior_name %></td>
-  <td><%= object.status_name %></td>
-  <td><%= object.contacts %></td>
-  <td><%= object.mobile %></td>
-  <td><%= link_to t('show'), [:admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('edit'), [:edit, :admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('destroy'), [:admin, object], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
-</tr>
+<% cache organization do %>
+  <tr>
+    <td><%= organization.code %></td>
+    <td><%= organization.name %></td>
+    <td><%= organization.status_name %></td>
+    <td><%= organization.parent_name %></td>
+    <td><%= organization.contacts %></td>
+    <td><%= organization.mobile %></td>
+    <td><%= link_to t('show'), [:admin, organization], class: 'text-nowrap' %></td>
+    <td><%= link_to t('edit'), [:edit, :admin, organization], class: 'text-nowrap' %></td>
+    <td><%= link_to t('destroy'), [:admin, organization], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+  </tr>
+<% end %>

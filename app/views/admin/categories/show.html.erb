@@ -49,10 +49,10 @@
 
       <tr>
         <th class="w-25 bg-100 text-right">
-          <%= Category.human_attribute_name('superior') %>
+          <%= Category.human_attribute_name('parent_id') %>
         </th>
         <td>
-          <%= @category.superior_id %>
+          <%= @category.parent_name %>
         </td>
       </tr>
 

@@ -6,8 +6,10 @@ FactoryBot.define do
     name { Faker::Name.unique.name }
     status { 1 }
     desc { 'MyString' }
-    superior { nil }
     classifiable { nil }
+    ancestry_depth { 1 }
+    children_count { 0 }
+    ancestry { nil }
   end
 end
 
@@ -19,14 +21,16 @@ end
 #  name              :string
 #  status            :integer          default("enabled")
 #  desc              :text
-#  superior_id       :bigint
 #  classifiable_type :string
 #  classifiable_id   :bigint
+#  ancestry          :string
+#  ancestry_depth    :integer          default(0)
+#  children_count    :integer          default(0)
 #
 # Indexes
 #
-#  index_categories_on_classifiable          (classifiable_type,classifiable_id)
-#  index_categories_on_superior_id           (superior_id)
-#  index_categories_on_superior_id_and_code  (superior_id,code) UNIQUE
-#  index_categories_on_superior_id_and_name  (superior_id,name) UNIQUE
+#  index_categories_on_ancestry           (ancestry)
+#  index_categories_on_ancestry_and_code  (ancestry,code) UNIQUE
+#  index_categories_on_ancestry_and_name  (ancestry,name) UNIQUE
+#  index_categories_on_classifiable       (classifiable_type,classifiable_id)
 #

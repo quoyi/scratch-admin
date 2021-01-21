@@ -24,7 +24,7 @@
             <th><%= Organization.human_attribute_name('code') %></th>
             <th><%= Organization.human_attribute_name('name') %></th>
             <th><%= Organization.human_attribute_name('status') %></th>
-            <th><%= Organization.human_attribute_name('children_count') %></th>
+            <th><%= Organization.human_attribute_name('parent_id') %></th>
             <th><%= Organization.human_attribute_name('contacts') %></th>
             <th><%= Organization.human_attribute_name('mobile') %></th>
             <th colspan="3"><%= I18n.t('operation') %></th>
@@ -32,19 +32,7 @@
         </thead>
 
         <tbody>
-          <% @organizations.each do |organization| %>
-            <tr>
-              <td><%= organization.code %></td>
-              <td><%= organization.name %></td>
-              <td><%= organization.status_name %></td>
-              <td><%= organization.children_count %></td>
-              <td><%= organization.contacts %></td>
-              <td><%= organization.mobile %></td>
-              <td><%= link_to t('show'), [:admin, organization], class: 'text-nowrap' %></td>
-              <td><%= link_to t('edit'), [:edit, :admin, organization], class: 'text-nowrap' %></td>
-              <td><%= link_to t('destroy'), [:admin, organization], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
-            </tr>
-          <% end %>
+          <%= render @organizations %>
         </tbody>
       </table>
     </div>

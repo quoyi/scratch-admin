@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_101359) do
+ActiveRecord::Schema.define(version: 2021_01_21_110529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,15 +48,17 @@ ActiveRecord::Schema.define(version: 2021_01_21_101359) do
     t.string "name"
     t.integer "status", default: 0
     t.text "desc"
-    t.bigint "superior_id"
     t.string "classifiable_type"
     t.bigint "classifiable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.integer "ancestry_depth", default: 0
+    t.integer "children_count", default: 0
+    t.index ["ancestry", "code"], name: "index_categories_on_ancestry_and_code", unique: true
+    t.index ["ancestry", "name"], name: "index_categories_on_ancestry_and_name", unique: true
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["classifiable_type", "classifiable_id"], name: "index_categories_on_classifiable"
-    t.index ["superior_id", "code"], name: "index_categories_on_superior_id_and_code", unique: true
-    t.index ["superior_id", "name"], name: "index_categories_on_superior_id_and_name", unique: true
-    t.index ["superior_id"], name: "index_categories_on_superior_id"
   end
 
   create_table "courses", force: :cascade do |t|

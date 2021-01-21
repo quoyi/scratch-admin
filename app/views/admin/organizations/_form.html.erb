@@ -3,7 +3,6 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%#= f.input :code %>
     <div class="row row-cols-2">
       <%= f.input :name, wrapper_html: { class: 'col' }, placeholder: '名称' %>
       <%= f.input :parent_id, collection: Organization.roots, wrapper_html: { class: 'col' }, include_blank: '选择所属组织' %>

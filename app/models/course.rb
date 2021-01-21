@@ -3,11 +3,10 @@
 class Course < ApplicationRecord
   include Codable
   include Statable
+  include Traceable
 
-  has_ancestry counter_cache: true, cache_depth: true
   acts_as_list scope: [:ancestry]
 
-  delegate :name, to: :parent, prefix: true, allow_nil: true
   delegate :name, to: :higher_item, prefix: true, allow_nil: true
   delegate :name, to: :creator, prefix: true, allow_nil: true
 

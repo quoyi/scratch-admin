@@ -1,9 +1,11 @@
-<tr>
-  <td><%= object.name %></td>
-  <td><%= object.superior_name %></td>
-  <td><%= object.status_name %></td>
-  <td><%= object.classifiable_id %></td>
-  <td><%= link_to t('show'), [:admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('edit'), [:edit, :admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('destroy'), [:admin, object], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
-</tr>
+<% cache category do %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= category.parent_name %></td>
+    <td><%= category.status_name %></td>
+    <td><%= category.classifiable_id %></td>
+    <td><%= link_to t('show'), [:admin, category], class: 'text-nowrap' %></td>
+    <td><%= link_to t('edit'), [:edit, :admin, category], class: 'text-nowrap' %></td>
+    <td><%= link_to t('destroy'), [:admin, category], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+  </tr>
+<% end %>

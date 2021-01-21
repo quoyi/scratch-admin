@@ -5,7 +5,7 @@ class Admin::CategoriesController < AdminController
 
   # GET /admin/categories
   def index
-    @q = Category.includes(:superior, :juniors).ransack(search_params)
+    @q = Category.ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @categories = @q.result.page(params[:page])
   end
@@ -61,7 +61,7 @@ class Admin::CategoriesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:code, :name, :status, :desc, :superior_id,
+      params.require(:category).permit(:code, :name, :status, :desc, :parent_id,
                                        :classifiable_id, :classifiable_type)
     end
 

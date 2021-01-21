@@ -13,6 +13,7 @@ zh-CN:
         intro: 简介
         desc: 详情
         parent_id: 所属课程
+        position: 顺序
         higher_item: 上一节
         lower_item: 下一节
         creator: 创建者

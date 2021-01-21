@@ -1,11 +1,13 @@
-<tr>
-  <td><%= object.code %></td>
-  <td><%= object.name %></td>
-  <td><%= object.status_name %></td>
-  <td><%= object.mold_name %></td>
-  <td><%= object.juniors_count %></td>
-  <td><%= object.creator_name %></td>
-  <td><%= link_to t('show'), [:admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('edit'), [:edit, :admin, object], class: 'text-nowrap' %></td>
-  <td><%= link_to t('destroy'), [:admin, object], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
-</tr>
+<% cache course do %>
+  <tr>
+    <td><%= course.code %></td>
+    <td><%= course.name %></td>
+    <td><%= course.status_name %></td>
+    <td><%= course.mold_name %></td>
+    <td><%= course.parent_name %></td>
+    <td><%= course.creator_name %></td>
+    <td><%= link_to t('show'), [:admin, course], class: 'text-nowrap' %></td>
+    <td><%= link_to t('edit'), [:edit, :admin, course], class: 'text-nowrap' %></td>
+    <td><%= link_to t('destroy'), [:admin, course], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+  </tr>
+<% end %>

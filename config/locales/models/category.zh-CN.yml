@@ -8,7 +8,7 @@ zh-CN:
         name: 名称
         status: 状态
         desc: 描述
-        superior: 所属类型
+        parent_id: 所属类型
         classifiable: 分类
     enums:
       category:

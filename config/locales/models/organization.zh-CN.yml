@@ -11,7 +11,8 @@ zh-CN:
         desc: 描述
         mobile: 联系方式
         contacts: 联系人
-        superior: 所属组织
+        children_count: 节点数
+        parent_id: 上级组织
     enums:
       organization:
         status:

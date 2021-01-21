@@ -6,7 +6,7 @@
     <%#= f.input :code %>
     <div class="row row-cols-2">
       <%= f.input :name, wrapper_html: { class: 'col' }, placeholder: '名称' %>
-      <%= f.association :superior, wrapper_html: { class: 'col' }, include_blank: '选择所属组织' %>
+      <%= f.input :parent_id, collection: Organization.roots, wrapper_html: { class: 'col' }, include_blank: '选择所属组织' %>
     </div>
 
     <div class="row row-cols-2">

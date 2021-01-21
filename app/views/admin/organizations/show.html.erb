@@ -76,10 +76,10 @@
 
       <tr>
         <th class="w-25 bg-100 text-right">
-          <%= Organization.human_attribute_name('superior') %>
+          <%= Organization.human_attribute_name('parent_id') %>
         </th>
         <td>
-          <%= @organization.superior_name %>
+          <%= @organization.parent_name %>
         </td>
       </tr>
 

@@ -5,10 +5,10 @@ class Admin::OrganizationsController < AdminController
 
   # GET /admin/organizations
   def index
-    @q = Organization.includes(:superior, :juniors).ransack(search_params)
+    @q = Organization.ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @organizations = @q.result.page(params[:page])
-    @tree = Organization.all.arrange
+    # @tree = Organization.all.arrange
   end
 
   # GET /admin/organizations/1

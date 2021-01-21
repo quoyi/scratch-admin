@@ -5,6 +5,8 @@ class Organization < ApplicationRecord
   include Statable
   # include Gradable
 
+  delegate :name, to: :parent, prefix: true, allow_nil: true
+
   has_ancestry counter_cache: true, cache_depth: true
 end
 

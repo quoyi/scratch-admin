@@ -8,6 +8,7 @@ class Admin::OrganizationsController < AdminController
     @q = Organization.includes(:superior, :juniors).ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @organizations = @q.result.page(params[:page])
+    @tree = Organization.all.arrange
   end
 
   # GET /admin/organizations/1

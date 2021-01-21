@@ -50,3 +50,6 @@ Style/Documentation:
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
+
+Style/NumericPredicate:
+  Enabled: false

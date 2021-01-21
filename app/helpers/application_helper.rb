@@ -2,14 +2,14 @@
 
 module ApplicationHelper
   # 表格树
-  def draw_tree(partial:, object:, **opts)
-    concat(render(partial, object: object, **opts)) unless object.superior
+  def draw_tree(partial:, object:)
+    concat(render(partial, object: object)) unless object.superior
 
     object.juniors.each do |junior|
       next unless junior
 
-      concat(render(partial, object: junior, **opts))
-      draw_tree(partial: partial, object: junior, **opts) if junior.juniors
+      concat(render(partial, object: junior))
+      draw_tree(partial: partial, object: junior) if junior.juniors
     end
   end
 

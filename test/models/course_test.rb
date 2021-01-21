@@ -4,86 +4,59 @@ require 'test_helper'
 
 class CourseTest < ActiveSupport::TestCase
   setup do
-    @superior = create(:course)
-    @courses = build_list(:course, 4, superior: @superior)
+    @parent = create(:course)
+    @courses = build_list(:course, 4, parent: @parent)
     @first = @courses.first
     @second = @courses.second
     @third = @courses.third
     @fourth = @courses.fourth
   end
 
-  test 'create head of stack' do
+  test 'create first of list' do
     assert_difference('Course.count', +1) do
       @first.save
     end
-    assert_equal 1, @first.seq
-    assert_equal @superior.id, @first.superior_id
+    assert_equal 1, @first.position
+    assert_equal 1, @parent.reload.children_count
+    assert_equal @parent.id, @first.parent_id
   end
 
-  test 'create end of stack' do
+  test 'create last of list' do
     @first.save
     assert_difference('Course.count', +1) do
       @second.save
     end
-    assert_equal 2, @second.seq
-    assert_equal @first.superior_id, @second.superior_id
+    assert_equal 2, @second.position
+    assert_equal 2, @parent.reload.children_count
+    assert_equal @first.parent_id, @second.parent_id
   end
 
-  test 'create middle of stack' do
+  test 'create middle of list' do
     @first.save
     @second.save
-    @third.seq = 1
+    @third.position = 2
 
     assert_difference('Course.count', +1) do
       @third.save
     end
-    assert_equal 2, @second.seq
-    assert_equal 3, @third.seq
-    assert_equal @second.id, @third.prev_id
-    assert_equal 3, @superior.juniors.count
+    assert_equal 2, @third.position
+    assert_equal 3, @second.reload.position
+    assert_equal 3, @parent.reload.children_count
+    assert_equal @second.parent_id, @third.parent_id
   end
 
-  test 'create head of another stack' do
+  test 'create first of another list' do
     @first.save
     @second.save
+    @third.save
 
-    @third.superior_id = nil
+    @fourth.parent_id = nil
     assert_difference('Course.count', +1) do
-      @third.save
+      @fourth.save
     end
-    assert_nil @third.prev_id
-    assert_nil @third.superior_id
-    assert_nil @superior.superior_id
-    # @superior.seq = 1, @third.seq = 2
-    assert_equal 2, @third.seq
-    # @superior.count + @courses.count = 4
-    assert_equal 4, Course.count
+    assert_nil @fourth.parent_id
+    assert_equal 2, @fourth.position
   end
-
-  # test 'append to the end of stack' do
-  #   @first.save
-  #   assert_difference('Course.count', +1) do
-  #     @second.save
-  #   end
-  #   assert_equal @first.seq, 1
-  #   assert_equal @second.seq, 2
-  #   assert_equal @second.prev_id, @first.id
-  #   assert_equal @second.superior_id, @first.superior_id
-  #   assert_equal @superior.juniors.count, 2
-  # end
-
-  # test 'append to the middle of stack' do
-  #   @first.save
-  #   @second.save
-  #   binding.pry
-  #   assert_difference('Course.count', +1) do
-  #     @third.prev_id = @first.id
-  #     @third.save
-  #   end
-  #   assert_equal @third.prev_id, @first.id
-  #   assert_equal @third.superior_id, @first.superior_id
-  #   assert_equal @second.prev_id, @third.id
-  # end
 end
 
 # == Schema Information

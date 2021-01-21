@@ -6,12 +6,13 @@ FactoryBot.define do
     name { Faker::Name.unique.name }
     status { 1 }
     mold { 1 }
-    juniors_count { 1 }
     intro { 'MyText' }
     desc { 'MyText' }
-    superior { nil }
-    prev { nil }
     creator { nil }
+    ancestry_depth { 1 }
+    children_count { 0 }
+    ancestry { nil }
+    position { 0 }
   end
 end
 

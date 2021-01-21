@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_20_093555) do
+ActiveRecord::Schema.define(version: 2021_01_21_073917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,19 +65,19 @@ ActiveRecord::Schema.define(version: 2021_01_20_093555) do
     t.integer "status", default: 0
     t.integer "mold", default: 0
     t.integer "seq", default: 0
-    t.integer "juniors_count", default: 0
     t.text "intro"
     t.text "desc"
-    t.bigint "superior_id"
-    t.bigint "prev_id"
     t.bigint "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "ancestry_depth", default: 0
+    t.integer "children_count", default: 0
+    t.string "ancestry"
+    t.integer "position", default: 0
+    t.index ["ancestry", "code"], name: "by_ancestry_code", unique: true
+    t.index ["ancestry", "name"], name: "by_ancestry_name", unique: true
+    t.index ["ancestry"], name: "index_courses_on_ancestry"
     t.index ["creator_id"], name: "index_courses_on_creator_id"
-    t.index ["prev_id"], name: "index_courses_on_prev_id"
-    t.index ["superior_id", "code"], name: "index_courses_on_superior_id_and_code", unique: true
-    t.index ["superior_id", "name"], name: "index_courses_on_superior_id_and_name", unique: true
-    t.index ["superior_id"], name: "index_courses_on_superior_id"
   end
 
   create_table "materials", force: :cascade do |t|

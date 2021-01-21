@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'sidekiq'
 gem 'rack-cors', require: 'rack/cors'
 gem 'ancestry'
+gem 'acts_as_list'
 gem 'paper_trail', github: 'paper-trail-gem/paper_trail'
 gem 'faker', github: 'faker-ruby/faker', branch: :master
 gem 'enumize'

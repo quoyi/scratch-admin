@@ -6,10 +6,11 @@
     <%#= f.input :code %>
     <div class="row row-cols-2">
       <%= f.input :name, placeholder: '名称', wrapper_html: { class: 'col' } %>
-      <%= f.association :superior, collection: Course.roots, include_blank: '选择所属课程', wrapper_html: { class: 'col' } %>
+      <%= f.input :parent_id, collection: Course.roots, include_blank: '选择所属课程', wrapper_html: { class: 'col' } %>
+      <%#= f.association :parent, collection: Course.roots, include_blank: '选择所属课程', wrapper_html: { class: 'col' } %>
     </div>
     <div class="row row-cols-2">
-      <%= f.association :prev, collection: Course.roots, include_blank: '选择前一节', wrapper_html: { class: 'col' }  %>
+      <%#= f.association :prev, collection: Course.roots, include_blank: '选择前一节', wrapper_html: { class: 'col' }  %>
       <%= f.input :mold, as: :radio_buttons,
                          collection: Course.mold_options,
                          placeholder: '模式',

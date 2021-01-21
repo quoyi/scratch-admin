@@ -21,7 +21,7 @@
             <th><%= Course.human_attribute_name('name') %></th>
             <th><%= Course.human_attribute_name('status') %></th>
             <th><%= Course.human_attribute_name('mold') %></th>
-            <th><%= Course.human_attribute_name('juniors_count') %></th>
+            <th><%= Course.human_attribute_name('children_count') %></th>
             <th><%= Course.human_attribute_name('creator') %></th>
             <th colspan="3"><%= I18n.t('operation') %></th>
           </tr>
@@ -29,7 +29,17 @@
 
         <tbody>
           <% @courses.each do |course| %>
-            <% draw_tree(partial: 'course', object: course) %>
+            <tr>
+              <td><%= course.code %></td>
+              <td><%= course.name %></td>
+              <td><%= course.status_name %></td>
+              <td><%= course.mold_name %></td>
+              <td><%= course.children_count %></td>
+              <td><%= course.creator_name %></td>
+              <td><%= link_to t('show'), [:admin, course], class: 'text-nowrap' %></td>
+              <td><%= link_to t('edit'), [:edit, :admin, course], class: 'text-nowrap' %></td>
+              <td><%= link_to t('destroy'), [:admin, course], method: :delete, class: 'text-nowrap', data: { confirm: t('delete_confirm') } %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>

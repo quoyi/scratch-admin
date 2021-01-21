@@ -58,10 +58,10 @@
 
       <tr>
         <th class="w-25 bg-100 text-right">
-          <%= Course.human_attribute_name('juniors_count') %>
+          <%= Course.human_attribute_name('children_count') %>
         </th>
         <td>
-          <%= @course.juniors_count %>
+          <%= @course.children_count %>
         </td>
       </tr>
 
@@ -85,19 +85,19 @@
 
       <tr>
         <th class="w-25 bg-100 text-right">
-          <%= Course.human_attribute_name('superior') %>
+          <%= Course.human_attribute_name('parent_id') %>
         </th>
         <td>
-          <%= @course.superior_name %>
+          <%= @course.parent_name %>
         </td>
       </tr>
 
       <tr>
         <th class="w-25 bg-100 text-right">
-          <%= Course.human_attribute_name('prev') %>
+          <%= Course.human_attribute_name('higher_item') %>
         </th>
         <td>
-          <%= @course.prev_name %>
+          <%= @course.higher_item_name %>
         </td>
       </tr>
 

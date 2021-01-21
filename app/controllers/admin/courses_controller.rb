@@ -5,7 +5,7 @@ class Admin::CoursesController < AdminController
 
   # GET /admin/courses
   def index
-    @q = Course.includes(:creator, :superior, :juniors).ransack(search_params)
+    @q = Course.includes(:creator).ransack(search_params)
     @q.sorts = ['id desc'] if @q.sorts.empty?
     @courses = @q.result.page(params[:page])
   end
@@ -61,8 +61,8 @@ class Admin::CoursesController < AdminController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:code, :name, :status, :mold, :seq, :juniors_count,
-                                     :intro, :desc, :superior_id, :prev_id, :creator_id)
+      params.require(:course).permit(:code, :name, :status, :mold, :seq, :children_count,
+                                     :intro, :desc, :parent_id, :creator_id)
     end
 
     def search_params

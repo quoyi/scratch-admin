@@ -65,7 +65,6 @@ module AncestryHelper
     # rubocop:disable Rails/OutputSafety
     output.html_safe # safe_join(output)
     # rubocop:enable Rails/OutputSafety
-
   end
 
   # Recursively render a partial from an Ancestry arranged subtree.

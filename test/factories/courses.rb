@@ -19,23 +19,23 @@ end
 #
 # Table name: courses
 #
-#  code          :string
-#  name          :string
-#  status        :integer          default("enabled")
-#  mold          :integer          default("private")
-#  seq           :integer          default(0)
-#  juniors_count :integer          default(0)
-#  intro         :text
-#  desc          :text
-#  superior_id   :bigint
-#  prev_id       :bigint
-#  creator_id    :bigint
+#  code           :string
+#  name           :string
+#  status         :integer          default("enabled")
+#  mold           :integer          default("private")
+#  seq            :integer          default(0)
+#  intro          :text
+#  desc           :text
+#  creator_id     :bigint
+#  ancestry_depth :integer          default(0)
+#  children_count :integer          default(0)
+#  ancestry       :string
+#  position       :integer          default(0)
 #
 # Indexes
 #
-#  index_courses_on_creator_id            (creator_id)
-#  index_courses_on_prev_id               (prev_id)
-#  index_courses_on_superior_id           (superior_id)
-#  index_courses_on_superior_id_and_code  (superior_id,code) UNIQUE
-#  index_courses_on_superior_id_and_name  (superior_id,name) UNIQUE
+#  by_ancestry_code             (ancestry,code) UNIQUE
+#  by_ancestry_name             (ancestry,name) UNIQUE
+#  index_courses_on_ancestry    (ancestry)
+#  index_courses_on_creator_id  (creator_id)
 #

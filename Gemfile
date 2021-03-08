@@ -42,7 +42,7 @@ group :development, :test do
   gem 'action-cable-testing'
   gem 'amazing_print'
   gem 'annotate'
-  gem 'bullet', '~> 6.1.2' # github: 'flyerhzm/bullet'
+  gem 'bullet', '~> 6.1.4' # github: 'flyerhzm/bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry'
